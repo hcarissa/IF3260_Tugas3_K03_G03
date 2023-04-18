@@ -1,0 +1,80 @@
+#canvas {
+  margin: 0.1em 0 0.1em 0.1em;
+  width: 95vh;
+  height: 95vh;
+  display: block;
+}
+
+/* #canvas:hover{
+  cursor: not-allowed;
+} */
+
+.toolContainer{
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 0.2em;
+}
+
+.translateButtonContainer{
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.leftPane{
+  width: 15em;
+  margin: 1em;
+}
+
+.rightPane{
+  margin: 1em;
+}
+
+.button-container{
+  display : flex;
+  justify-content: space-between;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.center{
+  margin: 0 auto;
+}
+.btn.active {
+  background-color: blue;
+  color: white;
+}
+
+#help {
+  position: fixed; 
+  display: none;
+  width: 100%;
+  height: 100%; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); 
+  z-index: 2; 
+  cursor: pointer; 
+}
+
+#helptext {
+  margin: auto;
+  width: 50%;
+
+  border: 1 solid white;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: white;
+}
