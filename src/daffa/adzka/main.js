@@ -4212,16 +4212,17 @@ hollowModel = articulatedModel;
 
 function resetArticulatedModel(name) {
   articulatedModel = {
-    name: "name",
+    name: name,
     vertexPositions: [],
     vertexNormals: [],
     vertexColors: []
   };
   transformStack = [];
+  console.log(name);
 }
 
 function resetTraverseRedraw(model) {
-  resetArticulatedModel("modelname");
+  resetArticulatedModel(model.name);
   traverse(model, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
   hollowModel = articulatedModel;
   redraw();
@@ -4581,6 +4582,7 @@ function setUpInitScene() {
   }
   oldAngle = 0;
   document.getElementById('angle').value = oldAngle;
+  console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
 }
 
 function yRotate(angleInRadians) {
@@ -6086,7 +6088,7 @@ rotZInput.addEventListener('input', () => {
 })
 
 function save() {
-  const object = JSON.stringify(objects, null, 4);
+  const object = JSON.stringify(articulatedModel, null, 4);
   const dataUri = `data:application/json;charset=utf-8,${encodeURIComponent(object)}`;
   const downloadLink = document.createElement('a');
   downloadLink.setAttribute('href', dataUri);
