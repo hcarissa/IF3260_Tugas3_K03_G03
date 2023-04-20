@@ -6789,9 +6789,7 @@ xTranslation.addEventListener('input', () => {
     } else if (componentName == "head") {
       const deltatransx = xValue - headtransx;
       headtransx = xValue;
-
       head.transform[0] = multiply(head.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
-
       resetTraverseRedraw(model);
     } else if (componentName == "leftupperarm") {
       const deltatransx = xValue - leftupperarmtransx;
@@ -6980,10 +6978,12 @@ xTranslation.addEventListener('input', () => {
       rightfrontleg.transform[0] = multiply(rightfrontleg.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
       resetTraverseRedraw(model);
     }else if(componentName == "HeadC"){
+      console.log(headc.transform[0])
       const deltatransx = xValue - HeadCTransX;
       HeadCTransX = xValue;
       headc.transform[0] = multiply(headc.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
       resetTraverseRedraw(model);
+      console.log(headc.transform[0])
     }
   }
 });
@@ -8226,7 +8226,7 @@ rotZInput.addEventListener('input', () => {
     }
 
   }
-   else if (modelName == "seaweed") {
+    else if (modelName == "seaweed") {
     model = seaweed;
     var componentName = document.getElementById("seaweedcomponent").value;
     if (componentName == "all") {
@@ -8302,7 +8302,12 @@ rotZInput.addEventListener('input', () => {
 })
 
 function save() {
-  const object = JSON.stringify(articulatedModel, null, 4);
+  var objects = []
+  objects.push(human)
+  objects.push(giraffe)
+  objects.push(seaweed)
+  objects.push(cow)
+  const object = JSON.stringify(objects, null, 4);
   const dataUri = `data:application/json;charset=utf-8,${encodeURIComponent(object)}`;
   const downloadLink = document.createElement('a');
   downloadLink.setAttribute('href', dataUri);
@@ -8343,7 +8348,8 @@ const loadFile = async (filename) => {
 };
 
 async function fetchFile(filename) {
-  return await fetch(filename).then((res) => res.text());
+  return await fetch(filename)
+  .then((res) => res.json())
 };
 setup();
 setUpInitScene();
