@@ -6434,6 +6434,7 @@ document.getElementById("shading").addEventListener("change", () => {
   }
 })
 
+
 function humanComponent() {
   var componentName = document.getElementById("humancomponent").value;
   if (componentName == "all") {
@@ -6445,6 +6446,91 @@ function humanComponent() {
     document.getElementById("rotation-y").value = angley;
     document.getElementById("rotation-z").value = anglez;
   } else if (componentName == "head") {
+    document.getElementById("scale").value = dilate;
+    document.getElementById("translation-x").value = headtransx;
+    document.getElementById("translation-y").value = headtransy;
+    document.getElementById("translation-z").value = headtransz;
+    document.getElementById("rotation-x").value = headanglex;
+    document.getElementById("rotation-y").value = headangley;
+    document.getElementById("rotation-z").value = headanglez;
+  } else if (componentName == "leftupperarm") {
+    document.getElementById("scale").value = dilate;
+    document.getElementById("translation-x").value = leftupperarmtransx;
+    document.getElementById("translation-y").value = leftupperarmtransy;
+    document.getElementById("translation-z").value = leftupperarmtransz;
+    document.getElementById("rotation-x").value = leftupperarmanglex;
+    document.getElementById("rotation-y").value = leftupperarmangley;
+    document.getElementById("rotation-z").value = leftupperarmanglez;
+  } else if (componentName == "rightupperarm") {
+    document.getElementById("scale").value = rightupperarmdilate;
+    document.getElementById("translation-x").value = rightupperarmtransx;
+    document.getElementById("translation-y").value = rightupperarmtransy;
+    document.getElementById("translation-z").value = rightupperarmtransz;
+    document.getElementById("rotation-x").value = rightupperarmanglex;
+    document.getElementById("rotation-y").value = rightupperarmangley;
+    document.getElementById("rotation-z").value = rightupperarmanglez;
+  } else if (componentName == "leftupperleg") {
+    document.getElementById("scale").value = leftupperlegdilate;
+    document.getElementById("translation-x").value = leftupperlegtransx;
+    document.getElementById("translation-y").value = leftupperlegtransy;
+    document.getElementById("translation-z").value = leftupperlegtransz;
+    document.getElementById("rotation-x").value = leftupperleganglex;
+    document.getElementById("rotation-y").value = leftupperlegangley;
+    document.getElementById("rotation-z").value = leftupperleganglez;
+  } else if (componentName == "rightupperleg") {
+    document.getElementById("scale").value = rightupperlegdilate;
+    document.getElementById("translation-x").value = rightupperlegtransx;
+    document.getElementById("translation-y").value = rightupperlegtransy;
+    document.getElementById("translation-z").value = rightupperlegtransz;
+    document.getElementById("rotation-x").value = rightupperleganglex;
+    document.getElementById("rotation-y").value = rightupperlegangley;
+    document.getElementById("rotation-z").value = rightupperleganglez;
+  } else if (componentName == "leftlowerarm") {
+    document.getElementById("scale").value = leftlowerarmdilate;
+    document.getElementById("translation-x").value = leftlowerarmtransx;
+    document.getElementById("translation-y").value = leftlowerarmtransy;
+    document.getElementById("translation-z").value = leftlowerarmtransz;
+    document.getElementById("rotation-x").value = leftlowerarmanglex;
+    document.getElementById("rotation-y").value = leftlowerarmangley;
+    document.getElementById("rotation-z").value = leftlowerarmanglez;
+  } else if (componentName == "rightlowerarm") {
+    document.getElementById("scale").value = rightlowerarmdilate;
+    document.getElementById("translation-x").value = rightlowerarmtransx;
+    document.getElementById("translation-y").value = rightlowerarmtransy;
+    document.getElementById("translation-z").value = rightlowerarmtransz;
+    document.getElementById("rotation-x").value = rightlowerarmanglex;
+    document.getElementById("rotation-y").value = rightlowerarmangley;
+    document.getElementById("rotation-z").value = rightlowerarmanglez;
+  } else if (componentName == "leftlowerleg") {
+    document.getElementById("scale").value = leftlowerlegdilate;
+    document.getElementById("translation-x").value = leftlowerlegtransx;
+    document.getElementById("translation-y").value = leftlowerlegtransy;
+    document.getElementById("translation-z").value = leftlowerlegtransz;
+    document.getElementById("rotation-x").value = leftlowerleganglex;
+    document.getElementById("rotation-y").value = leftlowerlegangley;
+    document.getElementById("rotation-z").value = leftlowerleganglez;
+  } else {
+    document.getElementById("scale").value = rightlowerlegdilate;
+    document.getElementById("translation-x").value = rightlowerlegtransx;
+    document.getElementById("translation-y").value = rightlowerlegtransy;
+    document.getElementById("translation-z").value = rightlowerlegtransz;
+    document.getElementById("rotation-x").value = rightlowerleganglex;
+    document.getElementById("rotation-y").value = rightlowerlegangley;
+    document.getElementById("rotation-z").value = rightlowerleganglez;
+  }
+}
+function giraffeComponent() {
+  var componentName = document.getElementById("giraffecomponent").value;
+  if (componentName == "all") {
+    document.getElementById("scale").value = dilate;
+    document.getElementById("translation-x").value = transx;
+    document.getElementById("translation-y").value = transy;
+    document.getElementById("translation-z").value = transz;
+    document.getElementById("rotation-x").value = anglex;
+    document.getElementById("rotation-y").value = angley;
+    document.getElementById("rotation-z").value = anglez;
+  } else if (componentName == "head") {
+    console.log("pp");
     document.getElementById("scale").value = dilate;
     document.getElementById("translation-x").value = headtransx;
     document.getElementById("translation-y").value = headtransy;
@@ -7242,7 +7328,80 @@ xTranslation.addEventListener('input', () => {
 
       resetTraverseRedraw(model);
     }
-  } else if (modelName == "seaweed") {
+  }
+  else if(modelName=="giraffe"){
+    model = giraffe;
+    var componentName = document.getElementById("giraffecomponent").value;
+    if (componentName == "all") {
+      const deltatransx = xValue - transx;
+      transx = xValue;
+      updateTranslate("object", 'x', deltatransx);
+    } else if (componentName == "head") {
+      const deltatransx = xValue - headtransx;
+      headtransx = xValue;
+
+      head.transform[0] = multiply(head.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftupperarm") {
+      const deltatransx = xValue - leftupperarmtransx;
+      leftupperarmtransx = xValue;
+
+      leftupperarm.transform[0] = multiply(leftupperarm.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightupperarm") {
+      const deltatransx = xValue - rightupperarmtransx;
+      rightupperarmtransx = xValue;
+
+      rightupperarm.transform[0] = multiply(rightupperarm.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftupperleg") {
+      const deltatransx = xValue - leftupperlegtransx;
+      leftupperlegtransx = xValue;
+
+      leftupperleg.transform[0] = multiply(leftupperleg.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightupperleg") {
+      const deltatransx = xValue - rightupperlegtransx;
+      rightupperlegtransx = xValue;
+
+      rightupperleg.transform[0] = multiply(rightupperleg.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftlowerarm") {
+      const deltatransx = xValue - leftlowerarmtransx;
+      leftlowerarmtransx = xValue;
+
+      leftlowerarm.transform[0] = multiply(leftlowerarm.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightlowerarm") {
+      const deltatransx = xValue - rightlowerarmtransx;
+      rightlowerarmtransx = xValue;
+
+      rightlowerarm.transform[0] = multiply(rightlowerarm.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftlowerleg") {
+      const deltatransx = xValue - leftlowerlegtransx;
+      leftlowerlegtransx = xValue;
+
+      leftlowerleg.transform[0] = multiply(leftlowerleg.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else {
+      const deltatransx = xValue - rightlowerlegtransx;
+      rightlowerlegtransx = xValue;
+
+      rightlowerleg.transform[0] = multiply(rightlowerleg.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    }
+  } 
+  else if (modelName == "seaweed") {
     model = seaweed;
     var componentName = document.getElementById("seaweedcomponent").value;
     if (componentName == "all") {
@@ -7381,7 +7540,79 @@ yTranslation.addEventListener('input', () => {
 
       resetTraverseRedraw(model);
     }
-  } else if (modelName == "seaweed") {
+  }else if(modelName="giraffe") {
+    model = giraffe;
+    var componentName = document.getElementById("giraffecomponent").value;
+    if (componentName == "all") {
+      const deltatransy = yValue - transy;
+      transy = yValue;
+      updateTranslate("object", 'y', deltatransy);
+    } else if (componentName == "head") {
+      const deltatransy = yValue - headtransy;
+      headtransy = yValue;
+
+      head.transform[0] = multiply(head.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftupperarm") {
+      const deltatransy = yValue - leftupperarmtransy;
+      leftupperarmtransy = yValue;
+
+      leftupperarm.transform[0] = multiply(leftupperarm.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightupperarm") {
+      const deltatransy = yValue - rightupperarmtransy;
+      rightupperarmtransy = yValue;
+
+      rightupperarm.transform[0] = multiply(rightupperarm.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftupperleg") {
+      const deltatransy = yValue - leftupperlegtransy;
+      leftupperlegtransy = yValue;
+
+      leftupperleg.transform[0] = multiply(leftupperleg.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightupperleg") {
+      const deltatransy = yValue - rightupperlegtransy;
+      rightupperlegtransy = yValue;
+
+      rightupperleg.transform[0] = multiply(rightupperleg.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftlowerarm") {
+      const deltatransy = yValue - leftlowerarmtransy;
+      leftlowerarmtransy = yValue;
+
+      leftlowerarm.transform[0] = multiply(leftlowerarm.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightlowerarm") {
+      const deltatransy = yValue - rightlowerarmtransy;
+      rightlowerarmtransy = yValue;
+
+      rightlowerarm.transform[0] = multiply(rightlowerarm.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftlowerleg") {
+      const deltatransy = yValue - leftlowerlegtransy;
+      leftlowerlegtransy = yValue;
+
+      leftlowerleg.transform[0] = multiply(leftlowerleg.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else {
+      const deltatransy = yValue - rightlowerlegtransy;
+      rightlowerlegtransy = yValue;
+
+      rightlowerleg.transform[0] = multiply(rightlowerleg.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    }
+  }
+  else if (modelName == "seaweed") {
     model = seaweed;
     var componentName = document.getElementById("seaweedcomponent").value;
     if (componentName == "all") {
@@ -7521,7 +7752,80 @@ zTranslation.addEventListener('input', () => {
 
       resetTraverseRedraw(model);
     }
-  } else if (modelName == "seaweed") {
+  }
+  else if(modelName=="giraffe"){
+    model = giraffe;
+    var componentName = document.getElementById("giraffecomponent").value;
+    if (componentName == "all") {
+      const deltatransz = zValue - transz;
+      transz = zValue;
+      updateTranslate("object", 'z', deltatransz);
+    } else if (componentName == "head") {
+      const deltatransz = zValue - headtransz;
+      headtransz = zValue;
+
+      head.transform[0] = multiply(head.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftupperarm") {
+      const deltatransz = zValue - leftupperarmtransz;
+      leftupperarmtransz = zValue;
+
+      leftupperarm.transform[0] = multiply(leftupperarm.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightupperarm") {
+      const deltatransz = zValue - rightupperarmtransz;
+      rightupperarmtransz = zValue;
+
+      rightupperarm.transform[0] = multiply(rightupperarm.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftupperleg") {
+      const deltatransz = zValue - leftupperlegtransz;
+      leftupperlegtransz = zValue;
+
+      leftupperleg.transform[0] = multiply(leftupperleg.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightupperleg") {
+      const deltatransz = zValue - rightupperlegtransz;
+      rightupperlegtransz = zValue;
+
+      rightupperleg.transform[0] = multiply(rightupperleg.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftlowerarm") {
+      const deltatransz = zValue - leftlowerarmtransz;
+      leftlowerarmtransz = zValue;
+
+      leftlowerarm.transform[0] = multiply(leftlowerarm.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightlowerarm") {
+      const deltatransz = zValue - rightlowerarmtransz;
+      rightlowerarmtransz = zValue;
+
+      rightlowerarm.transform[0] = multiply(rightlowerarm.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftlowerleg") {
+      const deltatransz = zValue - leftlowerlegtransz;
+      leftlowerlegtransz = zValue;
+
+      leftlowerleg.transform[0] = multiply(leftlowerleg.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else {
+      const deltatransz = zValue - rightlowerlegtransz;
+      rightlowerlegtransz = zValue;
+
+      rightlowerleg.transform[0] = multiply(rightlowerleg.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    }
+  } 
+  else if (modelName == "seaweed") {
     model = seaweed;
     var componentName = document.getElementById("seaweedcomponent").value;
     if (componentName == "all") {
@@ -7661,7 +7965,80 @@ scaleInput.addEventListener('input', () => {
 
       resetTraverseRedraw(model);
     }
-  } else if (modelName == "seaweed") {
+  }
+  else if(modelName="giraffe"){
+    model = giraffe;
+    var componentName = document.getElementById("giraffecomponent").value;
+    if (componentName == "all") {
+      const deltascale = scaleValue / dilate;
+      dilate = scaleValue;
+      updateScale("object", deltascale);
+    } else if (componentName == "head") {
+      const deltascale = scaleValue / headdilate;
+      headdilate = scaleValue;
+
+      head.transform[2] = multiply([deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1], head.transform[2]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftupperarm") {
+      const deltascale = scaleValue / leftupperarmdilate;
+      leftupperarmdilate = scaleValue;
+
+      leftupperarm.transform[2] = multiply(leftupperarm.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightupperarm") {
+      const deltascale = scaleValue / rightupperarmdilate;
+      rightupperarmdilate = scaleValue;
+
+      rightupperarm.transform[2] = multiply(rightupperarm.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftupperleg") {
+      const deltascale = scaleValue / leftupperlegdilate;
+      leftupperlegdilate = scaleValue;
+
+      leftupperleg.transform[2] = multiply(leftupperleg.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightupperleg") {
+      const deltascale = scaleValue / rightupperlegdilate;
+      rightupperlegdilate = scaleValue;
+
+      rightupperleg.transform[2] = multiply(rightupperleg.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftlowerarm") {
+      const deltascale = scaleValue / leftlowerarmdilate;
+      leftlowerarmdilate = scaleValue;
+
+      leftlowerarm.transform[2] = multiply(leftlowerarm.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightlowerarm") {
+      const deltascale = scaleValue / rightlowerarmdilate;
+      rightlowerarmdilate = scaleValue;
+
+      rightlowerarm.transform[2] = multiply(rightlowerarm.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftlowerleg") {
+      const deltascale = scaleValue / leftlowerlegdilate;
+      leftlowerlegdilate = scaleValue;
+
+      leftlowerleg.transform[2] = multiply(leftlowerleg.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    } else {
+      const deltascale = scaleValue / rightlowerlegdilate;
+      rightlowerlegdilate = scaleValue;
+
+      rightlowerleg.transform[2] = multiply(rightlowerleg.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+
+      resetTraverseRedraw(model);
+    }
+  }
+   else if (modelName == "seaweed") {
     model = seaweed;
     var componentName = document.getElementById("seaweedcomponent").value;
     if (componentName == "all") {
@@ -7810,7 +8187,79 @@ rotXInput.addEventListener('input', () => {
 
       resetTraverseRedraw(model);
     }
-  } else if (modelName == "seaweed") {
+  }else if(modelName== "giraffe"){
+    model = giraffe;
+    var componentName = document.getElementById("giraffecomponent").value;
+    if (componentName == "all") {
+      const deltarotx = rotxValue - anglex;
+      anglex = rotxValue;
+      updateRotation("object", deltarotx, 0, 0)
+    } else if (componentName == "head") {
+      const deltarotx = rotxValue - headanglex;
+      headanglex = rotxValue;
+
+      head.transform[1] = multiply(head.transform[1], rotationMatrix(deltarotx, 0, 0));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftupperarm") {
+      const deltarotx = rotxValue - leftupperarmanglex;
+      leftupperarmanglex = rotxValue;
+
+      leftupperarm.transform[1] = multiply(leftupperarm.transform[1], rotationMatrix(deltarotx, 0, 0));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightupperarm") {
+      const deltarotx = rotxValue - rightupperarmanglex;
+      rightupperarmanglex = rotxValue;
+
+      rightupperarm.transform[1] = multiply(rightupperarm.transform[1], rotationMatrix(deltarotx, 0, 0));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftupperleg") {
+      const deltarotx = rotxValue - leftupperleganglex;
+      leftupperleganglex = rotxValue;
+
+      leftupperleg.transform[1] = multiply(leftupperleg.transform[1], rotationMatrix(deltarotx, 0, 0));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightupperleg") {
+      const deltarotx = rotxValue - rightupperleganglex;
+      rightupperleganglex = rotxValue;
+
+      rightupperleg.transform[1] = multiply(rightupperleg.transform[1], rotationMatrix(deltarotx, 0, 0));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftlowerarm") {
+      const deltarotx = rotxValue - leftlowerarmanglex;
+      leftlowerarmanglex = rotxValue;
+
+      leftlowerarm.transform[1] = multiply(leftlowerarm.transform[1], rotationMatrix(deltarotx, 0, 0));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightlowerarm") {
+      const deltarotx = rotxValue - rightlowerarmanglex;
+      rightlowerarmanglex = rotxValue;
+
+      rightlowerarm.transform[1] = multiply(rightlowerarm.transform[1], rotationMatrix(deltarotx, 0, 0));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftlowerleg") {
+      const deltarotx = rotxValue - leftlowerleganglex;
+      leftlowerleganglex = rotxValue;
+
+      leftlowerleg.transform[1] = multiply(leftlowerleg.transform[1], rotationMatrix(deltarotx, 0, 0));
+
+      resetTraverseRedraw(model);
+    } else {
+      const deltarotx = rotxValue - rightlowerleganglex;
+      rightlowerleganglex = rotxValue;
+
+      rightlowerleg.transform[1] = multiply(rightlowerleg.transform[1], rotationMatrix(deltarotx, 0, 0));
+
+      resetTraverseRedraw(model);
+    }
+  }
+   else if (modelName == "seaweed") {
     model = seaweed;
     var componentName = document.getElementById("seaweedcomponent").value;
     if (componentName == "all") {
@@ -7960,7 +8409,79 @@ rotYInput.addEventListener('input', () => {
 
       resetTraverseRedraw(model);
     }
-  } else if (modelName == "seaweed") {
+  }else if(modelName=="giraffe"){
+    model = giraffe;
+    var componentName = document.getElementById("giraffecomponent").value;
+    if (componentName == "all") {
+      const deltaroty = rotyValue - angley;
+      angley = rotyValue;
+      updateRotation("object", 0, deltaroty, 0)
+    } else if (componentName == "head") {
+      const deltaroty = rotyValue - headangley;
+      headangley = rotyValue;
+
+      head.transform[1] = multiply(head.transform[1], rotationMatrix(0, deltaroty, 0));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftupperarm") {
+      const deltaroty = rotyValue - leftupperarmangley;
+      leftupperarmangley = rotyValue;
+
+      leftupperarm.transform[1] = multiply(leftupperarm.transform[1], rotationMatrix(0, deltaroty, 0));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightupperarm") {
+      const deltaroty = rotyValue - rightupperarmangley;
+      rightupperarmangley = rotyValue;
+
+      rightupperarm.transform[1] = multiply(rightupperarm.transform[1], rotationMatrix(0, deltaroty, 0));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftupperleg") {
+      const deltaroty = rotyValue - leftupperlegangley;
+      leftupperlegangley = rotyValue;
+
+      leftupperleg.transform[1] = multiply(leftupperleg.transform[1], rotationMatrix(0, deltaroty, 0));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightupperleg") {
+      const deltaroty = rotyValue - rightupperlegangley;
+      rightupperlegangley = rotyValue;
+
+      rightupperleg.transform[1] = multiply(rightupperleg.transform[1], rotationMatrix(0, deltaroty, 0));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftlowerarm") {
+      const deltaroty = rotyValue - leftlowerarmangley;
+      leftlowerarmangley = rotyValue;
+
+      leftlowerarm.transform[1] = multiply(leftlowerarm.transform[1], rotationMatrix(0, deltaroty, 0));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightlowerarm") {
+      const deltaroty = rotyValue - rightlowerarmangley;
+      rightlowerarmangley = rotyValue;
+
+      rightlowerarm.transform[1] = multiply(rightlowerarm.transform[1], rotationMatrix(0, deltaroty, 0));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftlowerleg") {
+      const deltaroty = rotyValue - leftlowerlegangley;
+      leftlowerlegangley = rotyValue;
+
+      leftlowerleg.transform[1] = multiply(leftlowerleg.transform[1], rotationMatrix(0, deltaroty, 0));
+
+      resetTraverseRedraw(model);
+    } else {
+      const deltaroty = rotyValue - rightlowerlegangley;
+      rightlowerlegangley = rotyValue;
+
+      rightlowerleg.transform[1] = multiply(rightlowerleg.transform[1], rotationMatrix(0, deltaroty, 0));
+
+      resetTraverseRedraw(model);
+    }
+  } 
+  else if (modelName == "seaweed") {
     model = seaweed;
     var componentName = document.getElementById("seaweedcomponent").value;
     if (componentName == "all") {
@@ -8109,7 +8630,81 @@ rotZInput.addEventListener('input', () => {
 
       resetTraverseRedraw(model);
     }
-  } else if (modelName == "seaweed") {
+  }
+  else if(modelName =="giraffe"){
+    model = giraffe;
+    var componentName = document.getElementById("giraffecomponent").value;
+    if (componentName == "all") {
+      const deltarotz = rotzValue - anglez;
+      anglez = rotzValue;
+      updateRotation("object", 0, 0, deltarotz);
+    } else if (componentName == "head") {
+      const deltarotz = rotzValue - headanglez;
+      headanglez = rotzValue;
+
+      head.transform[1] = multiply(head.transform[1], rotationMatrix(0, 0, deltarotz));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftupperarm") {
+      const deltarotz = rotzValue - leftupperarmanglez;
+      leftupperarmanglez = rotzValue;
+
+      leftupperarm.transform[1] = multiply(leftupperarm.transform[1], rotationMatrix(0, 0, deltarotz));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightupperarm") {
+      const deltarotz = rotzValue - rightupperarmanglez;
+      rightupperarmanglez = rotzValue;
+
+      rightupperarm.transform[1] = multiply(rightupperarm.transform[1], rotationMatrix(0, 0, deltarotz));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftupperleg") {
+      const deltarotz = rotzValue - leftupperleganglez;
+      leftupperleganglez = rotzValue;
+
+      leftupperleg.transform[1] = multiply(leftupperleg.transform[1], rotationMatrix(0, 0, deltarotz));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightupperleg") {
+      const deltarotz = rotzValue - rightupperleganglez;
+      rightupperleganglez = rotzValue;
+
+      rightupperleg.transform[1] = multiply(rightupperleg.transform[1], rotationMatrix(0, 0, deltarotz));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftlowerarm") {
+      const deltarotz = rotzValue - leftlowerarmanglez;
+      leftlowerarmanglez = rotzValue;
+
+      leftlowerarm.transform[1] = multiply(leftlowerarm.transform[1], rotationMatrix(0, 0, deltarotz));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "rightlowerarm") {
+      const deltarotz = rotzValue - rightlowerarmanglez;
+      rightlowerarmanglez = rotzValue;
+
+      rightlowerarm.transform[1] = multiply(rightlowerarm.transform[1], rotationMatrix(0, 0, deltarotz));
+
+      resetTraverseRedraw(model);
+    } else if (componentName == "leftlowerleg") {
+      const deltarotz = rotzValue - leftlowerleganglez;
+      leftlowerleganglez = rotzValue;
+
+      leftlowerleg.transform[1] = multiply(leftlowerleg.transform[1], rotationMatrix(0, 0, deltarotz));
+
+      resetTraverseRedraw(model);
+    } else {
+      const deltarotz = rotzValue - rightlowerleganglez;
+      rightlowerleganglez = rotzValue;
+
+      rightlowerleg.transform[1] = multiply(rightlowerleg.transform[1], rotationMatrix(0, 0, deltarotz));
+
+      resetTraverseRedraw(model);
+    }
+
+  }
+   else if (modelName == "seaweed") {
     model = seaweed;
     var componentName = document.getElementById("seaweedcomponent").value;
     if (componentName == "all") {
