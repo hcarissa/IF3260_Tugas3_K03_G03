@@ -824,76 +824,52 @@ var leftlowerarm = {
   ],
   animation : [
       // 1
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(0, 0, 0),
       
       // 2
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(0, 0, 0),
       
       // 3
-      [
-          1, 0, 0, 0,
+      multiply(
+        [
+          1, 0, 0, 0.05,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
       ],
+        rotationMatrix(0, 0, 30)),
       
       // 4
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(0, 0, 0),
       
       // 5
-      [
-          1, 0, 0, 0,
+      multiply(
+        [
+          1, 0, 0, -0.05,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
       ],
+        rotationMatrix(0, 0, -30)),
 
       // 6
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(0, 0, 0),
 
       // 7
-      [
-          1, 0, 0, 0,
+      multiply(
+        [
+          1, 0, 0, 0.05,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
       ],
+        rotationMatrix(0, 0, 30)),
 
       // 8
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(0, 0, 0),
 
       //9
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ]
+      rotationMatrix(0, 0, 0),
   ],
   child : null,
   sibling : null
@@ -1014,76 +990,52 @@ var rightlowerarm = {
   ],
   animation : [
       // 1
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(0, 0, 0),
       
       // 2
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(0, 0, 0),
       
       // 3
-      [
-          1, 0, 0, 0,
+      multiply(
+        [
+          1, 0, 0, 0.05,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
       ],
+        rotationMatrix(0, 0, 30)),
       
       // 4
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(0, 0, 0),
       
       // 5
-      [
-          1, 0, 0, 0,
+      multiply(
+        [
+          1, 0, 0, -0.05,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
       ],
+        rotationMatrix(0, 0, -30)),
 
       // 6
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(0, 0, 0),
 
       // 7
-      [
-          1, 0, 0, 0,
+      multiply(
+        [
+          1, 0, 0, 0.05,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
       ],
+        rotationMatrix(0, 0, 30)),
 
       // 8
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(0, 0, 0),
 
       //9
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ]
+      rotationMatrix(0, 0, 0),
   ],
   transform : [
       [
@@ -1665,15 +1617,15 @@ var rightupperleg = {
   animation : [
       // 1
       [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
+        1, 0, 0, 0,
+        0, 1, 0, 0,
+        0, 0, 1, 0,
+        0, 0, 0, 1,
       ],
       
       // 2
       [
-          1, 0, 0, 0,
+          1, 0, 0, 0.03,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
@@ -1681,7 +1633,7 @@ var rightupperleg = {
       
       // 3
       [
-          1, 0, 0, 0,
+          1, 0, 0, 0.06,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
@@ -1689,7 +1641,7 @@ var rightupperleg = {
       
       // 4
       [
-          1, 0, 0, 0,
+          1, 0, 0, 0.03,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
@@ -1705,7 +1657,7 @@ var rightupperleg = {
 
       // 6
       [
-          1, 0, 0, 0,
+          1, 0, 0, 0.03,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
@@ -1713,7 +1665,7 @@ var rightupperleg = {
 
       // 7
       [
-          1, 0, 0, 0,
+          1, 0, 0, 0.06,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
@@ -1721,7 +1673,7 @@ var rightupperleg = {
 
       // 8
       [
-          1, 0, 0, 0,
+          1, 0, 0, 0.03,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
@@ -1883,7 +1835,7 @@ var leftupperleg = {
       
       // 2
       [
-          1, 0, 0, 0,
+          1, 0, 0, -0.03,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
@@ -1891,7 +1843,7 @@ var leftupperleg = {
       
       // 3
       [
-          1, 0, 0, 0,
+          1, 0, 0, -0.06,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
@@ -1899,7 +1851,7 @@ var leftupperleg = {
       
       // 4
       [
-          1, 0, 0, 0,
+          1, 0, 0, -0.03,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
@@ -1915,7 +1867,7 @@ var leftupperleg = {
 
       // 6
       [
-          1, 0, 0, 0,
+          1, 0, 0, -0.03,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
@@ -1923,7 +1875,7 @@ var leftupperleg = {
 
       // 7
       [
-          1, 0, 0, 0,
+          1, 0, 0, -0.06,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
@@ -1931,7 +1883,7 @@ var leftupperleg = {
 
       // 8
       [
-          1, 0, 0, 0,
+          1, 0, 0, -0.03,
           0, 1, 0, 0,
           0, 0, 1, 0,
           0, 0, 0, 1,
@@ -2084,76 +2036,31 @@ var rightupperarm = {
   ],
   animation : [
       // 1
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(0, 0, 0),
       
       // 2
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(30, 0, 0),
       
       // 3
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(30, 0, 0),
       
       // 4
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(30, 0, 0),
       
       // 5
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(30, 0, 0),
 
       // 6
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(30, 0, 0),
 
       // 7
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(30, 0, 0),
 
       // 8
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(30, 0, 0),
 
       //9
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ]
+      rotationMatrix(0, 0, 0),
   ],
   child : rightlowerarm,
   sibling : leftupperleg
@@ -2294,76 +2201,31 @@ var leftupperarm = {
   ],
   animation : [
       // 1
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(0, 0, 0),
       
       // 2
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(-30, 0, 0),
       
       // 3
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(-30, 0, 0),
       
       // 4
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(-30, 0, 0),
       
       // 5
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(-30, 0, 0),
 
       // 6
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(-30, 0, 0),
 
       // 7
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(-30, 0, 0),
 
       // 8
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      rotationMatrix(-30, 0, 0),
 
       //9
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ]
+      rotationMatrix(0, 0, 0),
   ],
   child : leftlowerarm,
   sibling : rightupperarm
@@ -2504,76 +2366,31 @@ var head = {
   ],
   animation : [
       // 1
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
-      
+      scale(1, 1, 1),
+        
       // 2
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      scale(1, 1.3, 1),
       
       // 3
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      scale(1, 1.6, 1),
       
       // 4
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      scale(1, 1.3, 1),
       
       // 5
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      scale(1, 1, 1),
 
       // 6
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      scale(1.3, 1, 1),
 
       // 7
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      scale(1.6, 1, 1),
 
       // 8
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ],
+      scale(1.3, 1, 1),
 
       //9
-      [
-          1, 0, 0, 0,
-          0, 1, 0, 0,
-          0, 0, 1, 0,
-          0, 0, 0, 1,
-      ]
+      scale(1, 1, 1),
   ],
   child : null,
   sibling : leftupperarm
@@ -2852,6 +2669,71 @@ function traverse(currentModel, currentModelMatrix) {
     traverse(currentModel.sibling, currentModelMatrix);
   }
   // console.log("TRAVERSE EXIT");
+}
+
+function traverseAnimate(currentModel, currentModelMatrix, frame) {
+  // console.log("TRAVERSEA ENTER");
+  // console.log(currentModel.name);
+  transformStack.push(currentModelMatrix);
+  //console.log(currentModel.transform);
+  var transform = multiply(currentModel.transform[0], multiply(currentModel.transform[1], currentModel.transform[2]))
+  // console.log(transform);
+  // console.log(currentModel.animation[frame]);
+  currentModelMatrix = multiply(currentModelMatrix, multiply(transform, currentModel.animation[frame]));
+  // console.log(currentModelMatrix);
+  for (let i = 0; i < currentModel.vertexPositions.length / 3; i++) {
+    var px = currentModel.vertexPositions[3 * i + 0];
+    var py = currentModel.vertexPositions[3 * i + 1];
+    var pz = currentModel.vertexPositions[3 * i + 2];
+    articulatedModel.vertexPositions.push(currentModelMatrix[0]*px + currentModelMatrix[1]*py + currentModelMatrix[2] * pz + currentModelMatrix[3]);
+    articulatedModel.vertexPositions.push(currentModelMatrix[4]*px + currentModelMatrix[5]*py + currentModelMatrix[6] * pz + currentModelMatrix[7]);
+    articulatedModel.vertexPositions.push(currentModelMatrix[8]*px + currentModelMatrix[9]*py + currentModelMatrix[10] * pz + currentModelMatrix[11]);
+
+    var nx = currentModel.vertexNormals[3 * i + 0];
+    var ny = currentModel.vertexNormals[3 * i + 1];
+    var nz = currentModel.vertexNormals[3 * i + 2];
+    articulatedModel.vertexNormals.push(currentModelMatrix[0]*nx + currentModelMatrix[1]*ny + currentModelMatrix[2] * nz);
+    articulatedModel.vertexNormals.push(currentModelMatrix[4]*nx + currentModelMatrix[5]*ny + currentModelMatrix[6] * nz);
+    articulatedModel.vertexNormals.push(currentModelMatrix[8]*nx + currentModelMatrix[9]*ny + currentModelMatrix[10] * nz);
+
+    var cx = currentModel.vertexColors[3 * i + 0];
+    var cy = currentModel.vertexColors[3 * i + 1];
+    var cz = currentModel.vertexColors[3 * i + 2];
+    articulatedModel.vertexColors.push(cx);
+    articulatedModel.vertexColors.push(cy);
+    articulatedModel.vertexColors.push(cz);
+  }
+  // console.log("RENDERED");
+  if (currentModel.child != null) {
+    // console.log(currentModel.child.name);
+    traverseAnimate(currentModel.child, currentModelMatrix, frame);
+  }
+  // console.log("CHILDED");
+  currentModelMatrix = transformStack.pop()
+  if (currentModel.sibling != null) {
+    // console.log(currentModel.sibling.name);
+    traverseAnimate(currentModel.sibling, currentModelMatrix, frame);
+  }
+  // console.log("TRAVERSEA EXIT");
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function animateModel() {
+  console.log("ANIMATE");
+  var modelName = document.getElementById("model").value;
+  if (modelName == "human") {
+    for (let i = 0; i < 9; i++) {
+      console.log("ANIMATE HUMAN");
+      resetArticulatedModel("human");
+      traverseAnimate(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1], i);
+      hollowModel = articulatedModel; 
+      redraw();
+      await sleep(200);
+    }
+  }
 }
 
 const canvas = document.getElementById("canvas");
