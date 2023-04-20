@@ -6470,21 +6470,42 @@ const oblique = (out, theta, phi) => {
   return out;
 }
 
+document.getElementById("selecthumancomponent").style.display = 'block';
+document.getElementById("selectgiraffecomponent").style.display = 'none';
+document.getElementById("selectseaweedcomponent").style.display = 'none';
+document.getElementById("selectcowcomponent").style.display = 'none';
+
 function modelHandler() {
   var modelName = document.getElementById("model").value;
   if (modelName == "human") {
+    document.getElementById("selecthumancomponent").style.display = 'block';
+    document.getElementById("selectgiraffecomponent").style.display = 'none';
+    document.getElementById("selectseaweedcomponent").style.display = 'none';
+    document.getElementById("selectcowcomponent").style.display = 'none';
     resetArticulatedModel("human");
     traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
     hollowModel = articulatedModel;
   } else if (modelName == "giraffe") {
+    document.getElementById("selecthumancomponent").style.display = 'none';
+    document.getElementById("selectgiraffecomponent").style.display = 'block';
+    document.getElementById("selectseaweedcomponent").style.display = 'none';
+    document.getElementById("selectcowcomponent").style.display = 'none';
     resetArticulatedModel("giraffe");
     traverse(giraffe, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
     hollowModel = articulatedModel;
   } else if (modelName == "seaweed") {
+    document.getElementById("selecthumancomponent").style.display = 'none';
+    document.getElementById("selectgiraffecomponent").style.display = 'none';
+    document.getElementById("selectseaweedcomponent").style.display = 'block';
+    document.getElementById("selectcowcomponent").style.display = 'none';
     resetArticulatedModel("seaweed");
     traverse(seaweed, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
     hollowModel = articulatedModel;
   } else {
+    document.getElementById("selecthumancomponent").style.display = 'none';
+    document.getElementById("selectgiraffecomponent").style.display = 'none';
+    document.getElementById("selectseaweedcomponent").style.display = 'none';
+    document.getElementById("selectcowcomponent").style.display = 'block';
     resetArticulatedModel("cow");
     traverse(cow, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
     hollowModel = articulatedModel;

@@ -39,50 +39,57 @@
       </div>
       <h2>Object Setting</h2>
       <div id="shapeToolContainer" class="toolContainer">
-        Select Human Component:
-        <select  id="humancomponent" onchange="humanComponent()">
-          <option value="all" selected="selected">All</option>
-          <option value="head">Head</option>
-          <option value="leftupperarm">Left Upper Arm</option>
-          <option value="rightupperarm">Right Upper Arm</option>
-          <option value="leftupperleg">Left Upper Leg</option>
-          <option value="rightupperleg">Right Upper Leg</option>
-          <option value="leftlowerarm">Left Lower Arm</option>
-          <option value="rightlowerarm">Right Lower Arm</option>
-          <option value="leftlowerleg">Left Lower Leg</option>
-          <option value="rightlowerleg">Right Lower Leg</option>
-        </select>
-        Select Giraffe Component:
-        <select  id="giraffecomponent" onchange="giraffeComponent()">
-          <option value="all" selected="selected">All</option>
-          <option value="head1">Head</option>
-          <option value="leftupperarm1">Neck </option>
-          <option value="rightupperarm1">Right Upper Arm</option>
-          <option value="leftupperleg1">Left Upper Leg</option>
-          <option value="rightupperleg1">Right Upper Leg</option>
-          <option value="leftlowerarm1">Left Lower Arm</option>
-          <option value="rightlowerarm1">Right Lower Arm</option>
-          <option value="leftlowerleg1">Left Lower Leg</option>
-          <option value="rightlowerleg1">Right Lower Leg</option>
-        </select>
-
-        Select Seaweed Component:
-        <select  id="seaweedcomponent" onchange="seaweedComponent()">
-          <option value="all" selected="selected">All</option>
-          <option value="bottomleaf">Bottom Leaf</option>
-          <option value="middleleaf">Middle Leaf</option>
-          <option value="topleaf">Top Leaf</option>
-        </select>
-        Select Cow Component:
-        <select  id="cowcomponent" onchange="cowComponent()">
-          <option value="all" selected="selected">All</option>
-          <option value="HeadC" >Head</option>
-          <option value="LeftFront">Left Front Leg</option>
-          <option value="LeftBack">Left Back Leg</option>
-          <option value="RightFront">Right Front Leg</option>
-          <option value="RightBack">Right Back Leg</option>
-        </select>
         <div id="scaling" class="tool">
+          <div id="selecthumancomponent">
+            Select Human Component:
+            <select  id="humancomponent" onchange="humanComponent()">
+              <option value="all" selected="selected">All</option>
+              <option value="head">Head</option>
+              <option value="leftupperarm">Left Upper Arm</option>
+              <option value="rightupperarm">Right Upper Arm</option>
+              <option value="leftupperleg">Left Upper Leg</option>
+              <option value="rightupperleg">Right Upper Leg</option>
+              <option value="leftlowerarm">Left Lower Arm</option>
+              <option value="rightlowerarm">Right Lower Arm</option>
+              <option value="leftlowerleg">Left Lower Leg</option>
+              <option value="rightlowerleg">Right Lower Leg</option>
+            </select>
+          </div>
+          <div id="selectgiraffecomponent">
+            Select Giraffe Component:
+            <select  id="giraffecomponent" onchange="giraffeComponent()">
+              <option value="all" selected="selected">All</option>
+              <option value="head1">Head</option>
+              <option value="leftupperarm1">Neck </option>
+              <option value="rightupperarm1">Right Upper Arm</option>
+              <option value="leftupperleg1">Left Upper Leg</option>
+              <option value="rightupperleg1">Right Upper Leg</option>
+              <option value="leftlowerarm1">Left Lower Arm</option>
+              <option value="rightlowerarm1">Right Lower Arm</option>
+              <option value="leftlowerleg1">Left Lower Leg</option>
+              <option value="rightlowerleg1">Right Lower Leg</option>
+            </select>
+          </div>
+          <div id="selectseaweedcomponent">
+            Select Seaweed Component:
+            <select  id="seaweedcomponent" onchange="seaweedComponent()">
+              <option value="all" selected="selected">All</option>
+              <option value="bottomleaf">Bottom Leaf</option>
+              <option value="middleleaf">Middle Leaf</option>
+              <option value="topleaf">Top Leaf</option>
+            </select>
+          </div>
+          <div id="selectcowcomponent">
+            Select Cow Component:
+            <select  id="cowcomponent" onchange="cowComponent()">
+              <option value="all" selected="selected">All</option>
+              <option value="HeadC" >Head</option>
+              <option value="LeftFront">Left Front Leg</option>
+              <option value="LeftBack">Left Back Leg</option>
+              <option value="RightFront">Right Front Leg</option>
+              <option value="RightBack">Right Back Leg</option>
+            </select>
+          </div>
           <label for="scale">Scale</label>
           <input type="range" min="0.5" max="2" value="1" class="slider" id="scale" step="0.001">
           <br>
