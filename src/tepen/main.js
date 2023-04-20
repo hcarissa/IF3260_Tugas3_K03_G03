@@ -112,34 +112,100 @@ function check(canvas) {
 const vertexShaderText = `
 attribute vec3 position;
 attribute vec3 normal;
+attribute vec2 texture;
+attribute vec3 color;
+
 uniform mat4 Pmatrix;
 uniform mat4 Vmatrix;
 uniform mat4 Mmatrix;
 uniform mat4 Nmatrix;
-attribute vec3 color;
+varying vec2 vTextCoord;
+varying float vIsTexture;
 varying vec3 vLighting;
 varying vec3 vColor;
 void main(void) {
-    gl_Position = Pmatrix*Vmatrix*Mmatrix*vec4(position, 1.);
-    vec3 ambientLight = vec3(0.3, 0.3, 0.3);
-    vec3 directionalLightColor = vec3(1, 1, 1);
-    vec3 directionalVector = normalize(vec3(0.85, 0.8, 0.75));
-    vec4 transformedNormal = Nmatrix*vec4(normal, 1.);
-    
-    float directional = max(dot(transformedNormal.xyz, directionalVector), 0.0);
-    vLighting = ambientLight + (directionalLightColor * directional);
-    vColor = color;
+  gl_Position = Pmatrix*Vmatrix*Mmatrix*vec4(position, 1.);
+  vec3 ambientLight = vec3(0.3, 0.3, 0.3);
+  vec3 directionalLightColor = vec3(1, 1, 1);
+  vec3 directionalVector = normalize(vec3(0.85, 0.8, 0.75));
+  vec4 transformedNormal = Nmatrix*vec4(normal, 1.);
+  
+  float directional = max(dot(transformedNormal.xyz, directionalVector), 0.0);
+  vLighting = ambientLight + (directionalLightColor * directional);
+  vColor = color;
+  vTextCoord = texture;
+}`;
+var vertEnv = `
+#version 300 es
+in vec4 a_pos;
+in vec3 a_normal;
+uniform mat4 u_projection;
+uniform mat4 u_transform;
+out vec3 v_worldPosition;
+out vec3 v_worldNormal;
+void main() {
+// Multiply the position by the matrix.
+highp vec4 worldPos = u_transform * a_pos;
+gl_Position = u_projection * worldPos;
+// send the view position to the fragment shader
+v_worldPosition = (worldPos).xyz;
+// orient the normals and pass to the fragment shader
+v_worldNormal = mat3(u_transform) * a_normal;
 }
-`;
+` 
+var fragEnv = `
+#version 300 es 
+precision highp float;
+in vec3 v_worldPosition;
+in vec3 v_worldNormal;
 
-const fragmentShaderText = 'precision mediump float;' +
-  'varying vec3 vColor;' +
-  'varying vec3 vLighting;' +
+uniform samplerCube u_texture;
 
-  'void main(void) {' +
-  'gl_FragColor = vec4(vColor, 1.);' +
-  'gl_FragColor.rgb *= vLighting;' +
-  '}';
+uniform vec3 u_camPosition;
+
+out vec4 outColor;
+
+void main() {
+vec3 worldNormal = normalize(v_worldNormal);
+vec3 eyeToSurfaceDir = normalize(v_worldPosition - u_camPosition);
+vec3 direction = reflect(eyeToSurfaceDir,worldNormal);
+outColor = texture(u_texture, direction);
+}
+`
+const fragmentShaderText = `precision mediump float;
+varying vec3 vColor;
+varying vec3 vLighting;
+varying vec2 vTextCoord;
+uniform float vIsTexture;
+uniform sampler2D uSampler;
+
+
+void main(void) {
+    vec4 texelColor = texture2D(uSampler, vTextCoord);
+    if(vIsTexture == 1.0){
+        gl_FragColor = vec4(texelColor.rgb *vLighting, 1.);
+    } 
+    else if(vIsTexture == 0.0){
+        gl_FragColor = vec4(vColor.rgb *vLighting,  1.);
+    } 
+}`;
+var fragCodeEnv = `
+#version 300 es
+precision mediump float;
+in vec4 v_color;
+in vec3 v_normal;
+// Using a modified version of phong
+uniform float u_ambLight;
+uniform vec3 u_revLightDir;
+out vec4 outColor;
+void main() {
+    vec3 normal = normalize(v_normal);
+    float light = dot(normal, u_revLightDir);
+    
+    outColor = v_color;
+    outColor.rgb *= u_ambLight + (1.0 - u_ambLight) * light;
+}`
+
 function createShader(gl, type, source) {
   let shader = gl.createShader(type)
   gl.shaderSource(shader, source)
@@ -2855,7 +2921,14 @@ function traverse(currentModel, currentModelMatrix) {
   }
   // console.log("TRAVERSE EXIT");
 }
-
+var textures = [
+  0.0, 0.0,   1.0, 0.0,   1.0, 1.0,   0.0, 1.0,
+  0.0, 0.0,   1.0, 0.0,   1.0, 1.0,   0.0, 1.0,
+  0.0, 0.0,   1.0, 0.0,   1.0, 1.0,   0.0, 1.0,
+  0.0, 0.0,   1.0, 0.0,   1.0, 1.0,   0.0, 1.0,
+  0.0, 0.0,   1.0, 0.0,   1.0, 1.0,   0.0, 1.0,
+  0.0, 0.0,   1.0, 0.0,   1.0, 1.0,   0.0, 1.0,
+];
 const canvas = document.getElementById("canvas");
 const gl = check(canvas);
 var oldAngle = 0;
@@ -2881,6 +2954,10 @@ function setup() {
   gl.bindBuffer(gl.ARRAY_BUFFER, normal_buffer);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(hollowModel.vertexNormals), gl.STATIC_DRAW);
 
+  var texture_buffer = gl.createBuffer();
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(textures),gl.STATIC_DRAW);
+
+
   _Pmatrix = gl.getUniformLocation(program, "Pmatrix");
   _Vmatrix = gl.getUniformLocation(program, "Vmatrix");
   _Mmatrix = gl.getUniformLocation(program, "Mmatrix");
@@ -2900,6 +2977,11 @@ function setup() {
   var _normal = gl.getAttribLocation(program, "normal");
   gl.vertexAttribPointer(_normal, 3, gl.FLOAT, false, 0, 0);
   gl.enableVertexAttribArray(_normal);
+
+  gl.bindBuffer(gl.ARRAY_BUFFER, texture_buffer);
+  var _texture = gl.getAttribLocation(program, "texture");
+  gl.vertexAttribPointer(_texture, 2, gl.FLOAT, false,0,0);
+  gl.enableVertexAttribArray(_texture);
 
   gl.useProgram(program);
   gl.enable(gl.DEPTH_TEST);
