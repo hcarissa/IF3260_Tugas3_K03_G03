@@ -11,6 +11,87 @@ var transy = 0;
 var transz = 0;
 var boolshade = 1;
 
+// human
+// head
+var headanglex = 180;
+var headangley = 180;
+var headanglez = 180;
+var headdilate = 1;
+var headtransx = 0;
+var headtransy = 0;
+var headtransz = 0;
+
+// left upper arm
+var leftupperarmanglex = 180;
+var leftupperarmangley = 180;
+var leftupperarmanglez = 180;
+var leftupperarmdilate = 1;
+var leftupperarmtransx = 0;
+var leftupperarmtransy = 0;
+var leftupperarmtransz = 0;
+
+// right upper arm
+var rightupperarmanglex = 180;
+var rightupperarmangley = 180;
+var rightupperarmanglez = 180;
+var rightupperarmdilate = 1;
+var rightupperarmtransx = 0;
+var rightupperarmtransy = 0;
+var rightupperarmtransz = 0;
+
+// left upper leg
+var leftupperleganglex = 180;
+var leftupperlegangley = 180;
+var leftupperleganglez = 180;
+var leftupperlegdilate = 1;
+var leftupperlegtransx = 0;
+var leftupperlegtransy = 0;
+var leftupperlegtransz = 0;
+
+// right upper leg
+var rightupperleganglex = 180;
+var rightupperlegangley = 180;
+var rightupperleganglez = 180;
+var rightupperlegdilate = 1;
+var rightupperlegtransx = 0;
+var rightupperlegtransy = 0;
+var rightupperlegtransz = 0;
+
+// left lower arm
+var leftlowerarmanglex = 180;
+var leftlowerarmangley = 180;
+var leftlowerarmanglez = 180;
+var leftlowerarmdilate = 1;
+var leftlowerarmtransx = 0;
+var leftlowerarmtransy = 0;
+var leftlowerarmtransz = 0;
+
+// right lower arm
+var rightlowerarmanglex = 180;
+var rightlowerarmangley = 180;
+var rightlowerarmanglez = 180;
+var rightlowerarmdilate = 1;
+var rightlowerarmtransx = 0;
+var rightlowerarmtransy = 0;
+var rightlowerarmtransz = 0;
+
+// left lower leg
+var leftlowerleganglex = 180;
+var leftlowerlegangley = 180;
+var leftlowerleganglez = 180;
+var leftlowerlegdilate = 1;
+var leftlowerlegtransx = 0;
+var leftlowerlegtransy = 0;
+var leftlowerlegtransz = 0;
+
+// right lower leg
+var rightlowerleganglex = 180;
+var rightlowerlegangley = 180;
+var rightlowerleganglez = 180;
+var rightlowerlegdilate = 1;
+var rightlowerlegtransx = 0;
+var rightlowerlegtransy = 0;
+var rightlowerlegtransz = 0;
 function check(canvas) {
   let gl = ['experimental-webgl', 'webgl', 'moz-webgl'];
   let flag;
@@ -722,10 +803,24 @@ var leftlowerarm = {
       0.5, 0.6, 0.7,
   ],
   transform : [
-      1, 0, 0, 0,
-      0, 1, 0, -0.25,
-      0, 0, 1, 0,
-      0, 0, 0, 1,
+      [
+          1, 0, 0, 0,
+          0, 1, 0, -0.25,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
   ],
   animation : [
       // 1
@@ -991,10 +1086,24 @@ var rightlowerarm = {
       ]
   ],
   transform : [
-      1, 0, 0, 0,
-      0, 1, 0, -0.25,
-      0, 0, 1, 0,
-      0, 0, 0, 1,
+      [
+          1, 0, 0, 0,
+          0, 1, 0, -0.25,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
   ],
   child : null,
   sibling : null
@@ -1187,10 +1296,24 @@ var leftlowerleg = {
       ]
   ],
   transform : [
-      1, 0, 0, 0,
-      0, 1, 0, -0.25,
-      0, 0, 1, 0,
-      0, 0, 0, 1,
+      [
+          1, 0, 0, 0,
+          0, 1, 0, -0.25,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
   ],
   child : null,
   sibling : null
@@ -1383,10 +1506,24 @@ var rightlowerleg = {
       ]
   ],
   transform : [
-      1, 0, 0, 0,
-      0, 1, 0, -0.25,
-      0, 0, 1, 0,
-      0, 0, 0, 1,
+      [
+          1, 0, 0, 0,
+          0, 1, 0, -0.25,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
   ],
   child : null,
   sibling : null
@@ -1506,10 +1643,24 @@ var rightupperleg = {
       0.5, 0.6, 0.7,
   ],
   transform : [
-      1, 0, 0, -0.2,
-      0, 1, 0, -0.375,
-      0, 0, 1, 0,
-      0, 0, 0, 1,
+      [
+          1, 0, 0, -0.2,
+          0, 1, 0, -0.375,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
   ],
   animation : [
       // 1
@@ -1702,10 +1853,24 @@ var leftupperleg = {
       0.5, 0.6, 0.7,
   ],
   transform : [
-      1, 0, 0, 0.2,
-      0, 1, 0, -0.375,
-      0, 0, 1, 0,
-      0, 0, 0, 1,
+      [
+          1, 0, 0, 0.2,
+          0, 1, 0, -0.375,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
   ],
   animation : [
       // 1
@@ -1898,10 +2063,24 @@ var rightupperarm = {
       0.5, 0.6, 0.7,
   ],
   transform : [
-      1, 0, 0, -0.31,
-      0, 1, 0, 0.125,
-      0, 0, 1, 0,
-      0, 0, 0, 1,
+      [
+          1, 0, 0, -0.31,
+          0, 1, 0, 0.125,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
   ],
   animation : [
       // 1
@@ -2094,10 +2273,24 @@ var leftupperarm = {
       0.5, 0.6, 0.7,
   ],
   transform : [
-      1, 0, 0, 0.31,
-      0, 1, 0, 0.125,
-      0, 0, 1, 0,
-      0, 0, 0, 1,
+      [
+          1, 0, 0, 0.31,
+          0, 1, 0, 0.125,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
   ],
   animation : [
       // 1
@@ -2290,10 +2483,24 @@ var head = {
       0.5, 0.6, 0.7,
   ],
   transform : [
-      1, 0, 0, 0,
-      0, 1, 0, 0.375,
-      0, 0, 1, 0,
-      0, 0, 0, 1,
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0.375,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
   ],
   animation : [
       // 1
@@ -2486,10 +2693,24 @@ var human = {
       0.5, 0.6, 0.7,
   ],
   transform : [
-      1, 0, 0, 0,
-      0, 1, 0, 0,
-      0, 0, 1, 0,
-      0, 0, 0, 1,
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
   ],
   animation : [
       // 1
@@ -2579,11 +2800,24 @@ var transformStack = [];
 traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
 hollowModel = articulatedModel;
 
+function resetArticulatedModel(name) {
+  articulatedModel = {
+    name : "name",
+    vertexPositions : [],
+    vertexNormals: [],
+    vertexColors: []
+  };
+  transformStack = [];
+}
+
 function traverse(currentModel, currentModelMatrix) {
-  console.log("TRAVERSE ENTER");
-  console.log(currentModel.name);
+  // console.log("TRAVERSE ENTER");
+  // console.log(currentModel.name);
   transformStack.push(currentModelMatrix);
-  currentModelMatrix = multiply(currentModelMatrix, currentModel.transform);
+  // console.log(currentModel.transform);
+  var transform = multiply(currentModel.transform[0], multiply(currentModel.transform[1], currentModel.transform[2]))
+  // console.log(transform);
+  currentModelMatrix = multiply(currentModelMatrix, transform);
   for (let i = 0; i < currentModel.vertexPositions.length / 3; i++) {
     var px = currentModel.vertexPositions[3 * i + 0];
     var py = currentModel.vertexPositions[3 * i + 1];
@@ -2606,18 +2840,18 @@ function traverse(currentModel, currentModelMatrix) {
     articulatedModel.vertexColors.push(cy);
     articulatedModel.vertexColors.push(cz);
   }
-  console.log("RENDERED");
+  // console.log("RENDERED");
   if (currentModel.child != null) {
     console.log(currentModel.child.name);
     traverse(currentModel.child, currentModelMatrix);
   }
-  console.log("CHILDED");
+  // console.log("CHILDED");
   currentModelMatrix = transformStack.pop()
   if (currentModel.sibling != null) {
-    console.log(currentModel.sibling.name);
+    // console.log(currentModel.sibling.name);
     traverse(currentModel.sibling, currentModelMatrix);
   }
-  console.log("TRAVERSE EXIT");
+  // console.log("TRAVERSE EXIT");
 }
 
 const canvas = document.getElementById("canvas");
@@ -2677,16 +2911,98 @@ function setup() {
 document.getElementById("shading").addEventListener("change", () => {
   if (boolshade == 0) {
     boolshade = 1;
-    for (var i = 0; i < objects.length; i++) {
-      draw(objects[i].projMatrix, objects[i].modelMatrix, objects[i].offset, objects[i].end);
-    }
+    redraw();
   } else {
     boolshade = 0
-    for (var i = 0; i < objects.length; i++) {
-      draw(objects[i].projMatrix, objects[i].modelMatrix, objects[i].offset, objects[i].end);
-    }
+    redraw();
   }
 })
+
+function humanComponent() {
+  var componentName = document.getElementById("humancomponent").value;
+  if (componentName == "all") {
+    document.getElementById("scale").value = dilate;
+    document.getElementById("translation-x").value = transx;
+    document.getElementById("translation-y").value = transy;
+    document.getElementById("translation-z").value = transz;
+    document.getElementById("rotation-x").value = anglex;
+    document.getElementById("rotation-y").value = angley;
+    document.getElementById("rotation-z").value = anglez;
+  } else if (componentName == "head") {
+    document.getElementById("scale").value = dilate;
+    document.getElementById("translation-x").value = headtransx;
+    document.getElementById("translation-y").value = headtransy;
+    document.getElementById("translation-z").value = headtransz;
+    document.getElementById("rotation-x").value = headanglex;
+    document.getElementById("rotation-y").value = headangley;
+    document.getElementById("rotation-z").value = headanglez;
+  } else if (componentName == "leftupperarm") {
+    document.getElementById("scale").value = dilate;
+    document.getElementById("translation-x").value = leftupperarmtransx;
+    document.getElementById("translation-y").value = leftupperarmtransy;
+    document.getElementById("translation-z").value = leftupperarmtransz;
+    document.getElementById("rotation-x").value = leftupperarmanglex;
+    document.getElementById("rotation-y").value = leftupperarmangley;
+    document.getElementById("rotation-z").value = leftupperarmanglez;
+  } else if (componentName == "rightupperarm") {
+    document.getElementById("scale").value = rightupperarmdilate;
+    document.getElementById("translation-x").value = rightupperarmtransx;
+    document.getElementById("translation-y").value = rightupperarmtransy;
+    document.getElementById("translation-z").value = rightupperarmtransz;
+    document.getElementById("rotation-x").value = rightupperarmanglex;
+    document.getElementById("rotation-y").value = rightupperarmangley;
+    document.getElementById("rotation-z").value = rightupperarmanglez;
+  } else if (componentName == "leftupperleg") {
+    document.getElementById("scale").value = leftupperlegdilate;
+    document.getElementById("translation-x").value = leftupperlegtransx;
+    document.getElementById("translation-y").value = leftupperlegtransy;
+    document.getElementById("translation-z").value = leftupperlegtransz;
+    document.getElementById("rotation-x").value = leftupperleganglex;
+    document.getElementById("rotation-y").value = leftupperlegangley;
+    document.getElementById("rotation-z").value = leftupperleganglez;
+  } else if (componentName == "rightupperleg") {
+    document.getElementById("scale").value = rightupperlegdilate;
+    document.getElementById("translation-x").value = rightupperlegtransx;
+    document.getElementById("translation-y").value = rightupperlegtransy;
+    document.getElementById("translation-z").value = rightupperlegtransz;
+    document.getElementById("rotation-x").value = rightupperleganglex;
+    document.getElementById("rotation-y").value = rightupperlegangley;
+    document.getElementById("rotation-z").value = rightupperleganglez;
+  } else if (componentName == "leftlowerarm") {
+    document.getElementById("scale").value = leftlowerarmdilate;
+    document.getElementById("translation-x").value = leftlowerarmtransx;
+    document.getElementById("translation-y").value = leftlowerarmtransy;
+    document.getElementById("translation-z").value = leftlowerarmtransz;
+    document.getElementById("rotation-x").value = leftlowerarmanglex;
+    document.getElementById("rotation-y").value = leftlowerarmangley;
+    document.getElementById("rotation-z").value = leftlowerarmanglez;
+  } else if (componentName == "rightlowerarm") {
+    document.getElementById("scale").value = rightlowerarmdilate;
+    document.getElementById("translation-x").value = rightlowerarmtransx;
+    document.getElementById("translation-y").value = rightlowerarmtransy;
+    document.getElementById("translation-z").value = rightlowerarmtransz;
+    document.getElementById("rotation-x").value = rightlowerarmanglex;
+    document.getElementById("rotation-y").value = rightlowerarmangley;
+    document.getElementById("rotation-z").value = rightlowerarmanglez;
+  } else if (componentName == "leftlowerleg") {
+    document.getElementById("scale").value = leftlowerlegdilate;
+    document.getElementById("translation-x").value = leftlowerlegtransx;
+    document.getElementById("translation-y").value = leftlowerlegtransy;
+    document.getElementById("translation-z").value = leftlowerlegtransz;
+    document.getElementById("rotation-x").value = leftlowerleganglex;
+    document.getElementById("rotation-y").value = leftlowerlegangley;
+    document.getElementById("rotation-z").value = leftlowerleganglez;
+  } else {
+    document.getElementById("scale").value = rightlowerlegdilate;
+    document.getElementById("translation-x").value = rightlowerlegtransx;
+    document.getElementById("translation-y").value = rightlowerlegtransy;
+    document.getElementById("translation-z").value = rightlowerlegtransz;
+    document.getElementById("rotation-x").value = rightlowerleganglex;
+    document.getElementById("rotation-y").value = rightlowerlegangley;
+    document.getElementById("rotation-z").value = rightlowerleganglez;
+  }
+}
+
 
 var distance = document.getElementById("distance").value;
 var camera_height = 0.05
@@ -2721,6 +3037,12 @@ function draw(proj_matrix, model_matrix, start, end) {
 
   for (var i = start; i < end; i++) {
     gl.drawArrays(gl.TRIANGLE_FAN, i * 4, 4);
+  }
+}
+
+function redraw() {
+  for (var i = 0; i < objects.length; i++) {
+    draw(objects[i].projMatrix, objects[i].modelMatrix, objects[i].offset, objects[i].end);
   }
 }
 
@@ -2988,43 +3310,19 @@ const oblique = (out, theta, phi) => {
 function modelHandler() {
   var modelName = document.getElementById("model").value;
   if (modelName == "human") {
-    articulatedModel = {
-      name : "human",
-      vertexPositions : [],
-      vertexNormals: [],
-      vertexColors: []
-    };
-    transformStack = [];
+    resetArticulatedModel("human");
     traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
     hollowModel = articulatedModel;
   } else if (modelName == "steven") {
-    articulatedModel = {
-      name : "human",
-      vertexPositions : [],
-      vertexNormals: [],
-      vertexColors: []
-    };
-    transformStack = [];
+    resetArticulatedModel("human");
     traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
     hollowModel = articulatedModel;
   } else if (modelName == "adzka") {
-    articulatedModel = {
-      name : "human",
-      vertexPositions : [],
-      vertexNormals: [],
-      vertexColors: []
-    };
-    transformStack = [];
+    resetArticulatedModel("human");
     traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
     hollowModel = articulatedModel;
   } else{
-    articulatedModel = {
-      name : "human",
-      vertexPositions : [],
-      vertexNormals: [],
-      vertexColors: []
-    };
-    transformStack = [];
+    resetArticulatedModel("human");
     traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
     hollowModel = articulatedModel;
   }
@@ -3059,9 +3357,7 @@ function distanceHandler() {
     distance = document.getElementById("distance").value;
     view_matrix[14] = distance;
     setup();
-    for (var i = 0; i < objects.length; i++) {
-      draw(objects[i].projMatrix, objects[i].modelMatrix, objects[i].offset, objects[i].end);
-    }
+    redraw();
   }
 }
 
@@ -3203,17 +3499,15 @@ function updateRotation(obj, x, y, z) {
       break;
     }
   }
-  let centerPoint = getCenterPoint(objects[idx].offset * 12, objects[idx].offset * 12 + objects[idx].numVertices * 3, vertices);
+  let centerPoint = getCenterPoint(0, hollowModel.vertexPositions.length, hollowModel.vertexPositions);
   var translate_matrix1 = translation(-centerPoint[0], -centerPoint[1], 0);
   var translate_matrix2 = translation(centerPoint[0], centerPoint[1], 0);
   var rotation_matrix = rotationMatrix(x, y, z);
-
   var trans = multiply(translate_matrix1, multiply(rotation_matrix, translate_matrix2));
+  
   objects[idx].modelMatrix = multiply(trans, objects[idx].modelMatrix)
-
-  for (var i = 0; i < objects.length; i++) {
-    draw(objects[i].projMatrix, objects[i].modelMatrix, objects[i].offset, objects[i].end);
-  }
+  
+  redraw();
 }
 function updateScale(obj, value) {
   var idx = 0;
@@ -3223,7 +3517,7 @@ function updateScale(obj, value) {
       break;
     }
   }
-  let centerPoint = getCenterPoint(objects[idx].offset * 12, objects[idx].offset * 12 + objects[idx].numVertices * 3, vertices);
+  let centerPoint = getCenterPoint(0, hollowModel.vertexPositions.length, hollowModel.vertexPositions);
   var translate_matrix1 = translation(-centerPoint[0], -centerPoint[1], 0);
   var translate_matrix2 = translation(centerPoint[0], centerPoint[1], 0);
   var scale_matrix = scale(value, value, value);
@@ -3270,47 +3564,720 @@ const rotYInput = document.getElementById('rotation-y');
 const rotZInput = document.getElementById('rotation-z');
 xTranslation.addEventListener('input', () => {
   const xValue = xTranslation.value;
-  const deltatransx = xValue - transx;
-  transx = xValue;
-  updateTranslate("object", 'x', deltatransx);
+  var modelName = document.getElementById("model").value;
+  if (modelName == "human") {
+    var componentName = document.getElementById("humancomponent").value;
+    if (componentName == "all") {
+      const deltatransx = xValue - transx;
+      transx = xValue;
+      updateTranslate("object", 'x', deltatransx);
+    } else if (componentName == "head") {
+      const deltatransx = xValue - headtransx;
+      headtransx = xValue;
+      
+      head.transform[0] = multiply(head.transform[0], [1,0,0,deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftupperarm") {
+      const deltatransx = xValue - leftupperarmtransx;
+      leftupperarmtransx = xValue;
+      
+      leftupperarm.transform[0] = multiply(leftupperarm.transform[0], [1,0,0,deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightupperarm") {
+      const deltatransx = xValue - rightupperarmtransx;
+      rightupperarmtransx = xValue;
+      
+      rightupperarm.transform[0] = multiply(rightupperarm.transform[0], [1,0,0,deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftupperleg") {
+      const deltatransx = xValue - leftupperlegtransx;
+      leftupperlegtransx = xValue;
+      
+      leftupperleg.transform[0] = multiply(leftupperleg.transform[0], [1,0,0,deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightupperleg") {
+      const deltatransx = xValue - rightupperlegtransx;
+      rightupperlegtransx = xValue;
+      
+      rightupperleg.transform[0] = multiply(rightupperleg.transform[0], [1,0,0,deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftlowerarm") {
+      const deltatransx = xValue - leftlowerarmtransx;
+      leftlowerarmtransx = xValue;
+      
+      leftlowerarm.transform[0] = multiply(leftlowerarm.transform[0], [1,0,0,deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightlowerarm") {
+      const deltatransx = xValue - rightlowerarmtransx;
+      rightlowerarmtransx = xValue;
+      
+      rightlowerarm.transform[0] = multiply(rightlowerarm.transform[0], [1,0,0,deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftlowerleg") {
+      const deltatransx = xValue - leftlowerlegtransx;
+      leftlowerlegtransx = xValue;
+      
+      leftlowerleg.transform[0] = multiply(leftlowerleg.transform[0], [1,0,0,deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else {
+      const deltatransx = xValue - rightlowerlegtransx;
+      rightlowerlegtransx = xValue;
+      
+      rightlowerleg.transform[0] = multiply(rightlowerleg.transform[0], [1,0,0,deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    }
+  }
 });
 yTranslation.addEventListener('input', () => {
   const yValue = yTranslation.value;
-  const deltatransy = yValue - transy;
-  transy = yValue;
-  updateTranslate("object", 'y', deltatransy);
+  var modelName = document.getElementById("model").value;
+  if (modelName == "human") {
+    var componentName = document.getElementById("humancomponent").value;
+    if (componentName == "all") {
+      const deltatransy = yValue - transy;
+      transy = yValue;
+      updateTranslate("object", 'y', deltatransy);
+    } else if (componentName == "head") {
+      const deltatransy = yValue - headtransy;
+      headtransy = yValue;
+      
+      head.transform[0] = multiply(head.transform[0], [1,0,0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftupperarm") {
+      const deltatransy = yValue - leftupperarmtransy;
+      leftupperarmtransy = yValue;
+      
+      leftupperarm.transform[0] = multiply(leftupperarm.transform[0], [1,0,0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightupperarm") {
+      const deltatransy = yValue - rightupperarmtransy;
+      rightupperarmtransy = yValue;
+      
+      rightupperarm.transform[0] = multiply(rightupperarm.transform[0], [1,0,0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftupperleg") {
+      const deltatransy = yValue - leftupperlegtransy;
+      leftupperlegtransy = yValue;
+      
+      leftupperleg.transform[0] = multiply(leftupperleg.transform[0], [1,0,0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightupperleg") {
+      const deltatransy = yValue - rightupperlegtransy;
+      rightupperlegtransy = yValue;
+      
+      rightupperleg.transform[0] = multiply(rightupperleg.transform[0], [1,0,0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftlowerarm") {
+      const deltatransy = yValue - leftlowerarmtransy;
+      leftlowerarmtransy = yValue;
+      
+      leftlowerarm.transform[0] = multiply(leftlowerarm.transform[0], [1,0,0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightlowerarm") {
+      const deltatransy = yValue - rightlowerarmtransy;
+      rightlowerarmtransy = yValue;
+      
+      rightlowerarm.transform[0] = multiply(rightlowerarm.transform[0], [1,0,0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftlowerleg") {
+      const deltatransy = yValue - leftlowerlegtransy;
+      leftlowerlegtransy = yValue;
+      
+      leftlowerleg.transform[0] = multiply(leftlowerleg.transform[0], [1,0,0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else {
+      const deltatransy = yValue - rightlowerlegtransy;
+      rightlowerlegtransy = yValue;
+      
+      rightlowerleg.transform[0] = multiply(rightlowerleg.transform[0], [1,0,0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    }
+  }
 });
 
 zTranslation.addEventListener('input', () => {
   const zValue = zTranslation.value;
-  const deltatransz = zValue - transz;
-  transz = zValue;
-  updateTranslate("object", 'z', deltatransz);
-
+  var modelName = document.getElementById("model").value;
+  if (modelName == "human") {
+    var componentName = document.getElementById("humancomponent").value;
+    if (componentName == "all") {
+      const deltatransz = zValue - transz;
+      transz = zValue;
+      updateTranslate("object", 'z', deltatransz);
+    } else if (componentName == "head") {
+      const deltatransz = zValue - headtransz;
+      headtransz = zValue;
+      
+      head.transform[0] = multiply(head.transform[0], [1,0,0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftupperarm") {
+      const deltatransz = zValue - leftupperarmtransz;
+      leftupperarmtransz = zValue;
+      
+      leftupperarm.transform[0] = multiply(leftupperarm.transform[0], [1,0,0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightupperarm") {
+      const deltatransz = zValue - rightupperarmtransz;
+      rightupperarmtransz = zValue;
+      
+      rightupperarm.transform[0] = multiply(rightupperarm.transform[0], [1,0,0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftupperleg") {
+      const deltatransz = zValue - leftupperlegtransz;
+      leftupperlegtransz = zValue;
+      
+      leftupperleg.transform[0] = multiply(leftupperleg.transform[0], [1,0,0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightupperleg") {
+      const deltatransz = zValue - rightupperlegtransz;
+      rightupperlegtransz = zValue;
+      
+      rightupperleg.transform[0] = multiply(rightupperleg.transform[0], [1,0,0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftlowerarm") {
+      const deltatransz = zValue - leftlowerarmtransz;
+      leftlowerarmtransz = zValue;
+      
+      leftlowerarm.transform[0] = multiply(leftlowerarm.transform[0], [1,0,0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightlowerarm") {
+      const deltatransz = zValue - rightlowerarmtransz;
+      rightlowerarmtransz = zValue;
+      
+      rightlowerarm.transform[0] = multiply(rightlowerarm.transform[0], [1,0,0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftlowerleg") {
+      const deltatransz = zValue - leftlowerlegtransz;
+      leftlowerlegtransz = zValue;
+      
+      leftlowerleg.transform[0] = multiply(leftlowerleg.transform[0], [1,0,0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else {
+      const deltatransz = zValue - rightlowerlegtransz;
+      rightlowerlegtransz = zValue;
+      
+      rightlowerleg.transform[0] = multiply(rightlowerleg.transform[0], [1,0,0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    }
+  }
 });
+
 scaleInput.addEventListener('input', () => {
   const scaleValue = scaleInput.value;
-  const deltascale = scaleValue / dilate;
-  dilate = scaleValue;
-  updateScale("object", deltascale);
+  var modelName = document.getElementById("model").value;
+  if (modelName == "human") {
+    var componentName = document.getElementById("humancomponent").value;
+    if (componentName == "all") {
+      const deltascale = scaleValue / dilate;
+      dilate = scaleValue;
+      updateScale("object", deltascale);
+    } else if (componentName == "head") {
+      const deltascale = scaleValue / headdilate;
+      headdilate = scaleValue;
+      console.log(head.transform[2]);
+      head.transform[2] = multiply([deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1], head.transform[2]);
+      console.log(head.transform);
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftupperarm") {
+      const deltascale = scaleValue / leftupperarmdilate;
+      leftupperarmdilate = scaleValue;
+      
+      leftupperarm.transform = multiply(leftupperarm.transform, [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightupperarm") {
+      const deltascale = scaleValue / rightupperarmdilate;
+      rightupperarmdilate = scaleValue;
+      
+      rightupperarm.transform = multiply(rightupperarm.transform, [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftupperleg") {
+      const deltascale = scaleValue / leftupperlegdilate;
+      leftupperlegdilate = scaleValue;
+      
+      leftupperleg.transform = multiply(leftupperleg.transform, [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightupperleg") {
+      const deltascale = scaleValue / rightupperlegdilate;
+      rightupperlegdilate = scaleValue;
+      
+      rightupperleg.transform = multiply(rightupperleg.transform, [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftlowerarm") {
+      const deltascale = scaleValue / leftlowerarmdilate;
+      leftlowerarmdilate = scaleValue;
+      
+      leftlowerarm.transform = multiply(leftlowerarm.transform, [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightlowerarm") {
+      const deltascale = scaleValue / rightlowerarmdilate;
+      rightlowerarmdilate = scaleValue;
+      
+      rightlowerarm.transform = multiply(rightlowerarm.transform, [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftlowerleg") {
+      const deltascale = scaleValue / leftlowerlegdilate;
+      leftlowerlegdilate = scaleValue;
+      
+      leftlowerleg.transform = multiply(leftlowerleg.transform, [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else {
+      const deltascale = scaleValue / rightlowerlegdilate;
+      rightlowerlegdilate = scaleValue;
+      
+      rightlowerleg.transform = multiply(rightlowerleg.transform, [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    }
+  }
 });
 rotXInput.addEventListener('input', () => {
   const rotxValue = rotXInput.value;
-  const deltarotx = rotxValue - anglex;
-  anglex = rotxValue;
-  updateRotation("object", deltarotx, 0, 0)
+  var modelName = document.getElementById("model").value;
+  if (modelName == "human") {
+    var componentName = document.getElementById("humancomponent").value;
+    if (componentName == "all") {
+      const deltarotx = rotxValue - anglex;
+      anglex = rotxValue;
+      updateRotation("object", deltarotx, 0, 0)
+    } else if (componentName == "head") {
+      const deltarotx = rotxValue - headanglex;
+      headanglex = rotxValue;
+      
+      head.transform[1] = multiply(head.transform[1], rotationMatrix(deltarotx, 0, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftupperarm") {
+      const deltarotx = rotxValue - leftupperarmanglex;
+      leftupperarmanglex = rotxValue;
+      
+      leftupperarm.transform[1] = multiply(leftupperarm.transform[1], rotationMatrix(deltarotx, 0, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightupperarm") {
+      const deltarotx = rotxValue - rightupperarmanglex;
+      rightupperarmanglex = rotxValue;
+      
+      rightupperarm.transform[1] = multiply(rightupperarm.transform[1], rotationMatrix(deltarotx, 0, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftupperleg") {
+      const deltarotx = rotxValue - leftupperleganglex;
+      leftupperleganglex = rotxValue;
+      
+      leftupperleg.transform[1] = multiply(leftupperleg.transform[1], rotationMatrix(deltarotx, 0, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightupperleg") {
+      const deltarotx = rotxValue - rightupperleganglex;
+      rightupperleganglex = rotxValue;
+      
+      rightupperleg.transform[1] = multiply(rightupperleg.transform[1], rotationMatrix(deltarotx, 0, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftlowerarm") {
+      const deltarotx = rotxValue - leftlowerarmanglex;
+      leftlowerarmanglex = rotxValue;
+      
+      leftlowerarm.transform[1] = multiply(leftlowerarm.transform[1], rotationMatrix(deltarotx, 0, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightlowerarm") {
+      const deltarotx = rotxValue - rightlowerarmanglex;
+      rightlowerarmanglex = rotxValue;
+      
+      rightlowerarm.transform[1] = multiply(rightlowerarm.transform[1], rotationMatrix(deltarotx, 0, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftlowerleg") {
+      const deltarotx = rotxValue - leftlowerleganglex;
+      leftlowerleganglex = rotxValue;
+      
+      leftlowerleg.transform[1] = multiply(leftlowerleg.transform[1], rotationMatrix(deltarotx, 0, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else {
+      const deltarotx = rotxValue - rightlowerleganglex;
+      rightlowerleganglex = rotxValue;
+      
+      rightlowerleg.transform[1] = multiply(rightlowerleg.transform[1], rotationMatrix(deltarotx, 0, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    }
+  }
 })
+
 rotYInput.addEventListener('input', () => {
   const rotyValue = rotYInput.value;
-  const deltaroty = rotyValue - angley;
-  angley = rotyValue;
-  updateRotation("object", 0, deltaroty, 0)
+  var modelName = document.getElementById("model").value;
+  if (modelName == "human") {
+    var componentName = document.getElementById("humancomponent").value;
+    if (componentName == "all") {
+      const deltaroty = rotyValue - angley;
+      angley = rotyValue;
+      updateRotation("object", 0, deltaroty, 0)
+    } else if (componentName == "head") {
+      const deltaroty = rotyValue - headangley;
+      headangley = rotyValue;
+      
+      head.transform[1] = multiply(head.transform[1], rotationMatrix(0, deltaroty, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftupperarm") {
+      const deltaroty = rotyValue - leftupperarmangley;
+      leftupperarmangley = rotyValue;
+      
+      leftupperarm.transform[1] = multiply(leftupperarm.transform[1], rotationMatrix(0, deltaroty, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightupperarm") {
+      const deltaroty = rotyValue - rightupperarmangley;
+      rightupperarmangley = rotyValue;
+      
+      rightupperarm.transform[1] = multiply(rightupperarm.transform[1], rotationMatrix(0, deltaroty, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftupperleg") {
+      const deltaroty = rotyValue - leftupperlegangley;
+      leftupperlegangley = rotyValue;
+      
+      leftupperleg.transform[1] = multiply(leftupperleg.transform[1], rotationMatrix(0, deltaroty, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightupperleg") {
+      const deltaroty = rotyValue - rightupperlegangley;
+      rightupperlegangley = rotyValue;
+      
+      rightupperleg.transform[1] = multiply(rightupperleg.transform[1], rotationMatrix(0, deltaroty, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftlowerarm") {
+      const deltaroty = rotyValue - leftlowerarmangley;
+      leftlowerarmangley = rotyValue;
+      
+      leftlowerarm.transform[1] = multiply(leftlowerarm.transform[1], rotationMatrix(0, deltaroty, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightlowerarm") {
+      const deltaroty = rotyValue - rightlowerarmangley;
+      rightlowerarmangley = rotyValue;
+      
+      rightlowerarm.transform[1] = multiply(rightlowerarm.transform[1], rotationMatrix(0, deltaroty, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftlowerleg") {
+      const deltaroty = rotyValue - leftlowerlegangley;
+      leftlowerlegangley = rotyValue;
+      
+      leftlowerleg.transform[1] = multiply(leftlowerleg.transform[1], rotationMatrix(0, deltaroty, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else {
+      const deltaroty = rotyValue - rightlowerlegangley;
+      rightlowerlegangley = rotyValue;
+      
+      rightlowerleg.transform[1] = multiply(rightlowerleg.transform[1], rotationMatrix(0, deltaroty, 0));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    }
+  }
 })
 rotZInput.addEventListener('input', () => {
   const rotzValue = rotZInput.value;
-  const deltarotz = rotzValue - anglez;
-  anglez = rotzValue;
-  updateRotation("object", 0, 0, deltarotz)
+  var modelName = document.getElementById("model").value;
+  if (modelName == "human") {
+    var componentName = document.getElementById("humancomponent").value;
+    if (componentName == "all") {
+      const deltarotz = rotzValue - anglez;
+      anglez = rotzValue;
+      updateRotation("object", 0, 0, deltarotz);
+    } else if (componentName == "head") {
+      const deltarotz = rotzValue - headanglez;
+      headanglez = rotzValue;
+      
+      head.transform[1] = multiply(head.transform[1], rotationMatrix(0, 0, deltarotz));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftupperarm") {
+      const deltarotz = rotzValue - leftupperarmanglez;
+      leftupperarmanglez = rotzValue;
+      
+      leftupperarm.transform[1] = multiply(leftupperarm.transform[1], rotationMatrix(0, 0, deltarotz));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightupperarm") {
+      const deltarotz = rotzValue - rightupperarmanglez;
+      rightupperarmanglez = rotzValue;
+      
+      rightupperarm.transform[1] = multiply(rightupperarm.transform[1], rotationMatrix(0, 0, deltarotz));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftupperleg") {
+      const deltarotz = rotzValue - leftupperleganglez;
+      leftupperleganglez = rotzValue;
+      
+      leftupperleg.transform[1] = multiply(leftupperleg.transform[1], rotationMatrix(0, 0, deltarotz));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightupperleg") {
+      const deltarotz = rotzValue - rightupperleganglez;
+      rightupperleganglez = rotzValue;
+      
+      rightupperleg.transform[1] = multiply(rightupperleg.transform[1], rotationMatrix(0, 0, deltarotz));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftlowerarm") {
+      const deltarotz = rotzValue - leftlowerarmanglez;
+      leftlowerarmanglez = rotzValue;
+      
+      leftlowerarm.transform[1] = multiply(leftlowerarm.transform[1], rotationMatrix(0, 0, deltarotz));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "rightlowerarm") {
+      const deltarotz = rotzValue - rightlowerarmanglez;
+      rightlowerarmanglez = rotzValue;
+      
+      rightlowerarm.transform[1] = multiply(rightlowerarm.transform[1], rotationMatrix(0, 0, deltarotz));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else if (componentName == "leftlowerleg") {
+      const deltarotz = rotzValue - leftlowerleganglez;
+      leftlowerleganglez = rotzValue;
+      
+      leftlowerleg.transform[1] = multiply(leftlowerleg.transform[1], rotationMatrix(0, 0, deltarotz));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    } else {
+      const deltarotz = rotzValue - rightlowerleganglez;
+      rightlowerleganglez = rotzValue;
+      
+      rightlowerleg.transform[1] = multiply(rightlowerleg.transform[1], rotationMatrix(0, 0, deltarotz));
+      
+      resetArticulatedModel("human");
+      traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      hollowModel = articulatedModel;
+      redraw();
+    }
+  }
 })
 
 function save() {
