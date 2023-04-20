@@ -2842,7 +2842,7 @@ function traverse(currentModel, currentModelMatrix) {
   }
   // console.log("RENDERED");
   if (currentModel.child != null) {
-    console.log(currentModel.child.name);
+    // console.log(currentModel.child.name);
     traverse(currentModel.child, currentModelMatrix);
   }
   // console.log("CHILDED");
@@ -3882,9 +3882,9 @@ scaleInput.addEventListener('input', () => {
     } else if (componentName == "head") {
       const deltascale = scaleValue / headdilate;
       headdilate = scaleValue;
-      console.log(head.transform[2]);
+      
       head.transform[2] = multiply([deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1], head.transform[2]);
-      console.log(head.transform);
+      
       resetArticulatedModel("human");
       traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
       hollowModel = articulatedModel;
@@ -3893,7 +3893,7 @@ scaleInput.addEventListener('input', () => {
       const deltascale = scaleValue / leftupperarmdilate;
       leftupperarmdilate = scaleValue;
       
-      leftupperarm.transform = multiply(leftupperarm.transform, [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      leftupperarm.transform[2] = multiply(leftupperarm.transform[2], [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
       
       resetArticulatedModel("human");
       traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
@@ -3903,7 +3903,7 @@ scaleInput.addEventListener('input', () => {
       const deltascale = scaleValue / rightupperarmdilate;
       rightupperarmdilate = scaleValue;
       
-      rightupperarm.transform = multiply(rightupperarm.transform, [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      rightupperarm.transform[2] = multiply(rightupperarm.transform[2], [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
       
       resetArticulatedModel("human");
       traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
@@ -3913,7 +3913,7 @@ scaleInput.addEventListener('input', () => {
       const deltascale = scaleValue / leftupperlegdilate;
       leftupperlegdilate = scaleValue;
       
-      leftupperleg.transform = multiply(leftupperleg.transform, [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      leftupperleg.transform[2] = multiply(leftupperleg.transform[2], [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
       
       resetArticulatedModel("human");
       traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
@@ -3923,7 +3923,7 @@ scaleInput.addEventListener('input', () => {
       const deltascale = scaleValue / rightupperlegdilate;
       rightupperlegdilate = scaleValue;
       
-      rightupperleg.transform = multiply(rightupperleg.transform, [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      rightupperleg.transform[2] = multiply(rightupperleg.transform[2], [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
       
       resetArticulatedModel("human");
       traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
@@ -3933,7 +3933,7 @@ scaleInput.addEventListener('input', () => {
       const deltascale = scaleValue / leftlowerarmdilate;
       leftlowerarmdilate = scaleValue;
       
-      leftlowerarm.transform = multiply(leftlowerarm.transform, [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      leftlowerarm.transform[2] = multiply(leftlowerarm.transform[2], [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
       
       resetArticulatedModel("human");
       traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
@@ -3943,7 +3943,7 @@ scaleInput.addEventListener('input', () => {
       const deltascale = scaleValue / rightlowerarmdilate;
       rightlowerarmdilate = scaleValue;
       
-      rightlowerarm.transform = multiply(rightlowerarm.transform, [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      rightlowerarm.transform[2] = multiply(rightlowerarm.transform[2], [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
       
       resetArticulatedModel("human");
       traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
@@ -3953,7 +3953,7 @@ scaleInput.addEventListener('input', () => {
       const deltascale = scaleValue / leftlowerlegdilate;
       leftlowerlegdilate = scaleValue;
       
-      leftlowerleg.transform = multiply(leftlowerleg.transform, [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      leftlowerleg.transform[2] = multiply(leftlowerleg.transform[2], [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
       
       resetArticulatedModel("human");
       traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
@@ -3963,7 +3963,7 @@ scaleInput.addEventListener('input', () => {
       const deltascale = scaleValue / rightlowerlegdilate;
       rightlowerlegdilate = scaleValue;
       
-      rightlowerleg.transform = multiply(rightlowerleg.transform, [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      rightlowerleg.transform[2] = multiply(rightlowerleg.transform[2], [deltascale,0,0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
       
       resetArticulatedModel("human");
       traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
