@@ -353,7 +353,7 @@ var _Nmatrix;
 // ======================================================
 // ARTICULATED MODELS
 // ======================================================
-var leftlowerarm = {
+var humanleftlowerarm = {
   name : "leftlowerarm",
   vertexPositions : [
       // Front
@@ -539,7 +539,7 @@ var leftlowerarm = {
   sibling : null
 }
 
-var rightlowerarm = {
+var humanrightlowerarm = {
   name : "rightlowerarm",
   vertexPositions : [
       // Front
@@ -725,7 +725,7 @@ var rightlowerarm = {
   sibling : null
 }
 
-var leftlowerleg = {
+var humanleftlowerleg = {
   name : "leftlowerleg",
   vertexPositions : [
       // Front
@@ -935,7 +935,7 @@ var leftlowerleg = {
   sibling : null
 }
 
-var rightlowerleg = {
+var humanrightlowerleg = {
   name : "rightlowerleg",
   vertexPositions : [
       // Front
@@ -1145,7 +1145,7 @@ var rightlowerleg = {
   sibling : null
 }
 
-var rightupperleg = {
+var humanrightupperleg = {
   name : "rightupperleg",
   vertexPositions : [
       // Front
@@ -1351,11 +1351,11 @@ var rightupperleg = {
           0, 0, 0, 1,
       ]
   ],
-  child : rightlowerleg,
+  child : humanrightlowerleg,
   sibling : null
 }
 
-var leftupperleg = {
+var humanleftupperleg = {
   name : "leftupperleg",
   vertexPositions : [
       // Front
@@ -1561,11 +1561,11 @@ var leftupperleg = {
           0, 0, 0, 1,
       ]
   ],
-  child : leftlowerleg,
-  sibling : rightupperleg
+  child : humanleftlowerleg,
+  sibling : humanrightupperleg
 }
 
-var rightupperarm = {
+var humanrightupperarm = {
   name : "rightupperarm",
   vertexPositions : [
       // Front
@@ -1726,11 +1726,11 @@ var rightupperarm = {
       //9
       rotationMatrix(0, 0, 0),
   ],
-  child : rightlowerarm,
-  sibling : leftupperleg
+  child : humanrightlowerarm,
+  sibling : humanleftupperleg
 }
 
-var leftupperarm = {
+var humanleftupperarm = {
   name : "leftupperarm",
   vertexPositions : [
       // Front
@@ -1891,11 +1891,11 @@ var leftupperarm = {
       //9
       rotationMatrix(0, 0, 0),
   ],
-  child : leftlowerarm,
-  sibling : rightupperarm
+  child : humanleftlowerarm,
+  sibling : humanrightupperarm
 }
 
-var head = {
+var humanhead = {
   name : "head",
   vertexPositions : [
       // Front
@@ -2057,7 +2057,7 @@ var head = {
       scale(1, 1, 1),
   ],
   child : null,
-  sibling : leftupperarm
+  sibling : humanleftupperarm
 }
 
 var human = {
@@ -2266,7 +2266,7 @@ var human = {
           0, 0, 0, 1,
       ]
   ],
-  child : head,
+  child : humanhead,
   sibling : null
 }
 
@@ -6789,62 +6789,62 @@ xTranslation.addEventListener('input', () => {
     } else if (componentName == "head") {
       const deltatransx = xValue - headtransx;
       headtransx = xValue;
-      head.transform[0] = multiply(head.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanhead.transform[0] = multiply(head.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
       resetTraverseRedraw(model);
     } else if (componentName == "leftupperarm") {
       const deltatransx = xValue - leftupperarmtransx;
       leftupperarmtransx = xValue;
 
-      leftupperarm.transform[0] = multiply(leftupperarm.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanleftupperarm.transform[0] = multiply(leftupperarm.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightupperarm") {
       const deltatransx = xValue - rightupperarmtransx;
       rightupperarmtransx = xValue;
 
-      rightupperarm.transform[0] = multiply(rightupperarm.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanrightupperarm.transform[0] = multiply(rightupperarm.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftupperleg") {
       const deltatransx = xValue - leftupperlegtransx;
       leftupperlegtransx = xValue;
 
-      leftupperleg.transform[0] = multiply(leftupperleg.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanleftupperleg.transform[0] = multiply(leftupperleg.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightupperleg") {
       const deltatransx = xValue - rightupperlegtransx;
       rightupperlegtransx = xValue;
 
-      rightupperleg.transform[0] = multiply(rightupperleg.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanrightupperleg.transform[0] = multiply(rightupperleg.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftlowerarm") {
       const deltatransx = xValue - leftlowerarmtransx;
       leftlowerarmtransx = xValue;
 
-      leftlowerarm.transform[0] = multiply(leftlowerarm.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanleftlowerarm.transform[0] = multiply(leftlowerarm.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightlowerarm") {
       const deltatransx = xValue - rightlowerarmtransx;
       rightlowerarmtransx = xValue;
 
-      rightlowerarm.transform[0] = multiply(rightlowerarm.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanrightlowerarm.transform[0] = multiply(rightlowerarm.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftlowerleg") {
       const deltatransx = xValue - leftlowerlegtransx;
       leftlowerlegtransx = xValue;
 
-      leftlowerleg.transform[0] = multiply(leftlowerleg.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanleftlowerleg.transform[0] = multiply(leftlowerleg.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else {
       const deltatransx = xValue - rightlowerlegtransx;
       rightlowerlegtransx = xValue;
 
-      rightlowerleg.transform[0] = multiply(rightlowerleg.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanrightlowerleg.transform[0] = multiply(rightlowerleg.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     }
@@ -7002,63 +7002,63 @@ yTranslation.addEventListener('input', () => {
       const deltatransy = yValue - headtransy;
       headtransy = yValue;
 
-      head.transform[0] = multiply(head.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanhead.transform[0] = multiply(head.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftupperarm") {
       const deltatransy = yValue - leftupperarmtransy;
       leftupperarmtransy = yValue;
 
-      leftupperarm.transform[0] = multiply(leftupperarm.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanleftupperarm.transform[0] = multiply(leftupperarm.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightupperarm") {
       const deltatransy = yValue - rightupperarmtransy;
       rightupperarmtransy = yValue;
 
-      rightupperarm.transform[0] = multiply(rightupperarm.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanrightupperarm.transform[0] = multiply(rightupperarm.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftupperleg") {
       const deltatransy = yValue - leftupperlegtransy;
       leftupperlegtransy = yValue;
 
-      leftupperleg.transform[0] = multiply(leftupperleg.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanleftupperleg.transform[0] = multiply(leftupperleg.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightupperleg") {
       const deltatransy = yValue - rightupperlegtransy;
       rightupperlegtransy = yValue;
 
-      rightupperleg.transform[0] = multiply(rightupperleg.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanrightupperleg.transform[0] = multiply(rightupperleg.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftlowerarm") {
       const deltatransy = yValue - leftlowerarmtransy;
       leftlowerarmtransy = yValue;
 
-      leftlowerarm.transform[0] = multiply(leftlowerarm.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanleftlowerarm.transform[0] = multiply(leftlowerarm.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightlowerarm") {
       const deltatransy = yValue - rightlowerarmtransy;
       rightlowerarmtransy = yValue;
 
-      rightlowerarm.transform[0] = multiply(rightlowerarm.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanrightlowerarm.transform[0] = multiply(rightlowerarm.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftlowerleg") {
       const deltatransy = yValue - leftlowerlegtransy;
       leftlowerlegtransy = yValue;
 
-      leftlowerleg.transform[0] = multiply(leftlowerleg.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanleftlowerleg.transform[0] = multiply(leftlowerleg.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else {
       const deltatransy = yValue - rightlowerlegtransy;
       rightlowerlegtransy = yValue;
 
-      rightlowerleg.transform[0] = multiply(rightlowerleg.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
+      humanrightlowerleg.transform[0] = multiply(rightlowerleg.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     }
@@ -7214,63 +7214,63 @@ zTranslation.addEventListener('input', () => {
       const deltatransz = zValue - headtransz;
       headtransz = zValue;
 
-      head.transform[0] = multiply(head.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      humanhead.transform[0] = multiply(head.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftupperarm") {
       const deltatransz = zValue - leftupperarmtransz;
       leftupperarmtransz = zValue;
 
-      leftupperarm.transform[0] = multiply(leftupperarm.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      humanleftupperarm.transform[0] = multiply(leftupperarm.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightupperarm") {
       const deltatransz = zValue - rightupperarmtransz;
       rightupperarmtransz = zValue;
 
-      rightupperarm.transform[0] = multiply(rightupperarm.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      humanrightupperarm.transform[0] = multiply(rightupperarm.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftupperleg") {
       const deltatransz = zValue - leftupperlegtransz;
       leftupperlegtransz = zValue;
 
-      leftupperleg.transform[0] = multiply(leftupperleg.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      humanleftupperleg.transform[0] = multiply(leftupperleg.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightupperleg") {
       const deltatransz = zValue - rightupperlegtransz;
       rightupperlegtransz = zValue;
 
-      rightupperleg.transform[0] = multiply(rightupperleg.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      humanrightupperleg.transform[0] = multiply(rightupperleg.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftlowerarm") {
       const deltatransz = zValue - leftlowerarmtransz;
       leftlowerarmtransz = zValue;
 
-      leftlowerarm.transform[0] = multiply(leftlowerarm.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      humanleftlowerarm.transform[0] = multiply(leftlowerarm.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightlowerarm") {
       const deltatransz = zValue - rightlowerarmtransz;
       rightlowerarmtransz = zValue;
 
-      rightlowerarm.transform[0] = multiply(rightlowerarm.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      humanrightlowerarm.transform[0] = multiply(rightlowerarm.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftlowerleg") {
       const deltatransz = zValue - leftlowerlegtransz;
       leftlowerlegtransz = zValue;
 
-      leftlowerleg.transform[0] = multiply(leftlowerleg.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      humanleftlowerleg.transform[0] = multiply(leftlowerleg.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else {
       const deltatransz = zValue - rightlowerlegtransz;
       rightlowerlegtransz = zValue;
 
-      rightlowerleg.transform[0] = multiply(rightlowerleg.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
+      humanrightlowerleg.transform[0] = multiply(rightlowerleg.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     }
@@ -7427,63 +7427,63 @@ scaleInput.addEventListener('input', () => {
       const deltascale = scaleValue / headdilate;
       headdilate = scaleValue;
 
-      head.transform[2] = multiply([deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1], head.transform[2]);
+      humanhead.transform[2] = multiply([deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1], head.transform[2]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftupperarm") {
       const deltascale = scaleValue / leftupperarmdilate;
       leftupperarmdilate = scaleValue;
 
-      leftupperarm.transform[2] = multiply(leftupperarm.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      humanleftupperarm.transform[2] = multiply(leftupperarm.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightupperarm") {
       const deltascale = scaleValue / rightupperarmdilate;
       rightupperarmdilate = scaleValue;
 
-      rightupperarm.transform[2] = multiply(rightupperarm.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      humanrightupperarm.transform[2] = multiply(rightupperarm.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftupperleg") {
       const deltascale = scaleValue / leftupperlegdilate;
       leftupperlegdilate = scaleValue;
 
-      leftupperleg.transform[2] = multiply(leftupperleg.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      humanleftupperleg.transform[2] = multiply(leftupperleg.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightupperleg") {
       const deltascale = scaleValue / rightupperlegdilate;
       rightupperlegdilate = scaleValue;
 
-      rightupperleg.transform[2] = multiply(rightupperleg.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      humanrightupperleg.transform[2] = multiply(rightupperleg.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftlowerarm") {
       const deltascale = scaleValue / leftlowerarmdilate;
       leftlowerarmdilate = scaleValue;
 
-      leftlowerarm.transform[2] = multiply(leftlowerarm.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      humanleftlowerarm.transform[2] = multiply(leftlowerarm.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightlowerarm") {
       const deltascale = scaleValue / rightlowerarmdilate;
       rightlowerarmdilate = scaleValue;
 
-      rightlowerarm.transform[2] = multiply(rightlowerarm.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      humanrightlowerarm.transform[2] = multiply(rightlowerarm.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftlowerleg") {
       const deltascale = scaleValue / leftlowerlegdilate;
       leftlowerlegdilate = scaleValue;
 
-      leftlowerleg.transform[2] = multiply(leftlowerleg.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      humanleftlowerleg.transform[2] = multiply(leftlowerleg.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     } else {
       const deltascale = scaleValue / rightlowerlegdilate;
       rightlowerlegdilate = scaleValue;
 
-      rightlowerleg.transform[2] = multiply(rightlowerleg.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
+      humanrightlowerleg.transform[2] = multiply(rightlowerleg.transform[2], [deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1]);
 
       resetTraverseRedraw(model);
     }
@@ -7649,63 +7649,63 @@ rotXInput.addEventListener('input', () => {
       const deltarotx = rotxValue - headanglex;
       headanglex = rotxValue;
 
-      head.transform[1] = multiply(head.transform[1], rotationMatrix(deltarotx, 0, 0));
+      humanhead.transform[1] = multiply(head.transform[1], rotationMatrix(deltarotx, 0, 0));
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftupperarm") {
       const deltarotx = rotxValue - leftupperarmanglex;
       leftupperarmanglex = rotxValue;
 
-      leftupperarm.transform[1] = multiply(leftupperarm.transform[1], rotationMatrix(deltarotx, 0, 0));
+      humanleftupperarm.transform[1] = multiply(leftupperarm.transform[1], rotationMatrix(deltarotx, 0, 0));
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightupperarm") {
       const deltarotx = rotxValue - rightupperarmanglex;
       rightupperarmanglex = rotxValue;
 
-      rightupperarm.transform[1] = multiply(rightupperarm.transform[1], rotationMatrix(deltarotx, 0, 0));
+      humanrightupperarm.transform[1] = multiply(rightupperarm.transform[1], rotationMatrix(deltarotx, 0, 0));
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftupperleg") {
       const deltarotx = rotxValue - leftupperleganglex;
       leftupperleganglex = rotxValue;
 
-      leftupperleg.transform[1] = multiply(leftupperleg.transform[1], rotationMatrix(deltarotx, 0, 0));
+      humanleftupperleg.transform[1] = multiply(leftupperleg.transform[1], rotationMatrix(deltarotx, 0, 0));
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightupperleg") {
       const deltarotx = rotxValue - rightupperleganglex;
       rightupperleganglex = rotxValue;
 
-      rightupperleg.transform[1] = multiply(rightupperleg.transform[1], rotationMatrix(deltarotx, 0, 0));
+      humanrightupperleg.transform[1] = multiply(rightupperleg.transform[1], rotationMatrix(deltarotx, 0, 0));
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftlowerarm") {
       const deltarotx = rotxValue - leftlowerarmanglex;
       leftlowerarmanglex = rotxValue;
 
-      leftlowerarm.transform[1] = multiply(leftlowerarm.transform[1], rotationMatrix(deltarotx, 0, 0));
+      humanleftlowerarm.transform[1] = multiply(leftlowerarm.transform[1], rotationMatrix(deltarotx, 0, 0));
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightlowerarm") {
       const deltarotx = rotxValue - rightlowerarmanglex;
       rightlowerarmanglex = rotxValue;
 
-      rightlowerarm.transform[1] = multiply(rightlowerarm.transform[1], rotationMatrix(deltarotx, 0, 0));
+      humanrightlowerarm.transform[1] = multiply(rightlowerarm.transform[1], rotationMatrix(deltarotx, 0, 0));
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftlowerleg") {
       const deltarotx = rotxValue - leftlowerleganglex;
       leftlowerleganglex = rotxValue;
 
-      leftlowerleg.transform[1] = multiply(leftlowerleg.transform[1], rotationMatrix(deltarotx, 0, 0));
+      humanleftlowerleg.transform[1] = multiply(leftlowerleg.transform[1], rotationMatrix(deltarotx, 0, 0));
 
       resetTraverseRedraw(model);
     } else {
       const deltarotx = rotxValue - rightlowerleganglex;
       rightlowerleganglex = rotxValue;
 
-      rightlowerleg.transform[1] = multiply(rightlowerleg.transform[1], rotationMatrix(deltarotx, 0, 0));
+      humanrightlowerleg.transform[1] = multiply(rightlowerleg.transform[1], rotationMatrix(deltarotx, 0, 0));
 
       resetTraverseRedraw(model);
     }
@@ -7871,63 +7871,63 @@ rotYInput.addEventListener('input', () => {
       const deltaroty = rotyValue - headangley;
       headangley = rotyValue;
 
-      head.transform[1] = multiply(head.transform[1], rotationMatrix(0, deltaroty, 0));
+      humanhead.transform[1] = multiply(head.transform[1], rotationMatrix(0, deltaroty, 0));
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftupperarm") {
       const deltaroty = rotyValue - leftupperarmangley;
       leftupperarmangley = rotyValue;
 
-      leftupperarm.transform[1] = multiply(leftupperarm.transform[1], rotationMatrix(0, deltaroty, 0));
+      humanleftupperarm.transform[1] = multiply(leftupperarm.transform[1], rotationMatrix(0, deltaroty, 0));
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightupperarm") {
       const deltaroty = rotyValue - rightupperarmangley;
       rightupperarmangley = rotyValue;
 
-      rightupperarm.transform[1] = multiply(rightupperarm.transform[1], rotationMatrix(0, deltaroty, 0));
+      humanrightupperarm.transform[1] = multiply(rightupperarm.transform[1], rotationMatrix(0, deltaroty, 0));
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftupperleg") {
       const deltaroty = rotyValue - leftupperlegangley;
       leftupperlegangley = rotyValue;
 
-      leftupperleg.transform[1] = multiply(leftupperleg.transform[1], rotationMatrix(0, deltaroty, 0));
+      humanleftupperleg.transform[1] = multiply(leftupperleg.transform[1], rotationMatrix(0, deltaroty, 0));
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightupperleg") {
       const deltaroty = rotyValue - rightupperlegangley;
       rightupperlegangley = rotyValue;
 
-      rightupperleg.transform[1] = multiply(rightupperleg.transform[1], rotationMatrix(0, deltaroty, 0));
+      humanrightupperleg.transform[1] = multiply(rightupperleg.transform[1], rotationMatrix(0, deltaroty, 0));
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftlowerarm") {
       const deltaroty = rotyValue - leftlowerarmangley;
       leftlowerarmangley = rotyValue;
 
-      leftlowerarm.transform[1] = multiply(leftlowerarm.transform[1], rotationMatrix(0, deltaroty, 0));
+      humanleftlowerarm.transform[1] = multiply(leftlowerarm.transform[1], rotationMatrix(0, deltaroty, 0));
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightlowerarm") {
       const deltaroty = rotyValue - rightlowerarmangley;
       rightlowerarmangley = rotyValue;
 
-      rightlowerarm.transform[1] = multiply(rightlowerarm.transform[1], rotationMatrix(0, deltaroty, 0));
+      humanrightlowerarm.transform[1] = multiply(rightlowerarm.transform[1], rotationMatrix(0, deltaroty, 0));
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftlowerleg") {
       const deltaroty = rotyValue - leftlowerlegangley;
       leftlowerlegangley = rotyValue;
 
-      leftlowerleg.transform[1] = multiply(leftlowerleg.transform[1], rotationMatrix(0, deltaroty, 0));
+      humanleftlowerleg.transform[1] = multiply(leftlowerleg.transform[1], rotationMatrix(0, deltaroty, 0));
 
       resetTraverseRedraw(model);
     } else {
       const deltaroty = rotyValue - rightlowerlegangley;
       rightlowerlegangley = rotyValue;
 
-      rightlowerleg.transform[1] = multiply(rightlowerleg.transform[1], rotationMatrix(0, deltaroty, 0));
+      humanrightlowerleg.transform[1] = multiply(rightlowerleg.transform[1], rotationMatrix(0, deltaroty, 0));
 
       resetTraverseRedraw(model);
     }
@@ -8092,63 +8092,63 @@ rotZInput.addEventListener('input', () => {
       const deltarotz = rotzValue - headanglez;
       headanglez = rotzValue;
 
-      head.transform[1] = multiply(head.transform[1], rotationMatrix(0, 0, deltarotz));
+      humanhead.transform[1] = multiply(head.transform[1], rotationMatrix(0, 0, deltarotz));
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftupperarm") {
       const deltarotz = rotzValue - leftupperarmanglez;
       leftupperarmanglez = rotzValue;
 
-      leftupperarm.transform[1] = multiply(leftupperarm.transform[1], rotationMatrix(0, 0, deltarotz));
+      humanleftupperarm.transform[1] = multiply(leftupperarm.transform[1], rotationMatrix(0, 0, deltarotz));
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightupperarm") {
       const deltarotz = rotzValue - rightupperarmanglez;
       rightupperarmanglez = rotzValue;
 
-      rightupperarm.transform[1] = multiply(rightupperarm.transform[1], rotationMatrix(0, 0, deltarotz));
+      humanrightupperarm.transform[1] = multiply(rightupperarm.transform[1], rotationMatrix(0, 0, deltarotz));
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftupperleg") {
       const deltarotz = rotzValue - leftupperleganglez;
       leftupperleganglez = rotzValue;
 
-      leftupperleg.transform[1] = multiply(leftupperleg.transform[1], rotationMatrix(0, 0, deltarotz));
+      humanleftupperleg.transform[1] = multiply(leftupperleg.transform[1], rotationMatrix(0, 0, deltarotz));
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightupperleg") {
       const deltarotz = rotzValue - rightupperleganglez;
       rightupperleganglez = rotzValue;
 
-      rightupperleg.transform[1] = multiply(rightupperleg.transform[1], rotationMatrix(0, 0, deltarotz));
+      humanrightupperleg.transform[1] = multiply(rightupperleg.transform[1], rotationMatrix(0, 0, deltarotz));
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftlowerarm") {
       const deltarotz = rotzValue - leftlowerarmanglez;
       leftlowerarmanglez = rotzValue;
 
-      leftlowerarm.transform[1] = multiply(leftlowerarm.transform[1], rotationMatrix(0, 0, deltarotz));
+      humanleftlowerarm.transform[1] = multiply(leftlowerarm.transform[1], rotationMatrix(0, 0, deltarotz));
 
       resetTraverseRedraw(model);
     } else if (componentName == "rightlowerarm") {
       const deltarotz = rotzValue - rightlowerarmanglez;
       rightlowerarmanglez = rotzValue;
 
-      rightlowerarm.transform[1] = multiply(rightlowerarm.transform[1], rotationMatrix(0, 0, deltarotz));
+      humanrightlowerarm.transform[1] = multiply(rightlowerarm.transform[1], rotationMatrix(0, 0, deltarotz));
 
       resetTraverseRedraw(model);
     } else if (componentName == "leftlowerleg") {
       const deltarotz = rotzValue - leftlowerleganglez;
       leftlowerleganglez = rotzValue;
 
-      leftlowerleg.transform[1] = multiply(leftlowerleg.transform[1], rotationMatrix(0, 0, deltarotz));
+      humanleftlowerleg.transform[1] = multiply(leftlowerleg.transform[1], rotationMatrix(0, 0, deltarotz));
 
       resetTraverseRedraw(model);
     } else {
       const deltarotz = rotzValue - rightlowerleganglez;
       rightlowerleganglez = rotzValue;
 
-      rightlowerleg.transform[1] = multiply(rightlowerleg.transform[1], rotationMatrix(0, 0, deltarotz));
+      humanrightlowerleg.transform[1] = multiply(rightlowerleg.transform[1], rotationMatrix(0, 0, deltarotz));
 
       resetTraverseRedraw(model);
     }
