@@ -121,6 +121,53 @@ var topleaftransx = 0;
 var topleaftransy = 0;
 var topleaftransz = 0;
 
+//cow
+//head
+var HeadCAngleX = 180;
+var HeadCAngleY = 180;
+var HeadCAngleZ = 180;
+var HeadCDilate = 1;
+var HeadCTransX = 0;
+var HeadCTransY = 0;
+var HeadCTransZ = 0;
+
+//leftfrontleg
+var LeftFrontAngleX = 180;
+var LeftFrontAngleY = 180;
+var LeftFrontAngleZ = 180;
+var LeftFrontDilate = 1;
+var LeftFrontTransX = 0;
+var LeftFrontTransY = 0;
+var LeftFrontTransZ = 0;
+
+//leftbackleg
+var LeftBackAngleX = 180;
+var LeftBackAngleY = 180;
+var LeftBackAngleZ = 180;
+var LeftBackDilate = 1;
+var LeftBackTransX = 0;
+var LeftBackTransY = 0;
+var LeftBackTransZ = 0;
+
+//rightfrontleg
+var RightFrontAngleX = 180;
+var RightFrontAngleY = 180;
+var RightFrontAngleZ = 180;
+var RightFrontDilate = 1;
+var RightFrontTransX = 0;
+var RightFrontTransY = 0;
+var RightFrontTransZ = 0;
+
+//rightbackleg
+var RightBackAngleX = 180;
+var RightBackAngleY = 180;
+var RightBackAngleZ = 180;
+var RightBackDilate = 1;
+var RightBackTransX = 0;
+var RightBackTransY = 0;
+var RightBackTransZ = 0;
+
+
 
 function check(canvas) {
   let gl = ['experimental-webgl', 'webgl', 'moz-webgl'];
@@ -222,13 +269,11 @@ var _Vmatrix;
 var _Mmatrix;
 var _Nmatrix;
 
-// OBJECTS
-
-
 // ======================================================
 // ARTICULATED MODELS
 // ======================================================
 
+//HUMAN
 var leftlowerarm = {
   name: "leftlowerarm",
   vertexPositions: [
@@ -2329,7 +2374,7 @@ var human = {
   sibling: null
 }
 
-//
+//SEAWEED
 
 var topleaf = {
   name: "topleaf",
@@ -2895,7 +2940,1266 @@ var seaweed = {
   sibling: null
 }
 
-//
+//COW
+var leftfrontleg = {
+  name : "leftfrontleg",
+  vertexPositions : [
+      // Front
+      -0.1, -0.1, 0.2,
+      -0.1, -0.7, 0.2,
+      0, -0.7, 0.2,
+      0, -0.1, 0.2,
+
+      // Top
+      -0.1, -0.1, 0.2,
+      -0.1, -0.1, 0.1,
+      0, -0.1, 0.1,
+      0, -0.1, 0.2,
+      
+      // Right
+      0, -0.1, 0.2, 
+      0, -0.7, 0.2,
+      0, -0.7, 0.1,
+      0, -0.1, 0.1,
+
+      // Bottom,
+      -0.1, -0.7, 0.2,
+      -0.1, -0.7, 0.1,
+      0, -0.7, 0.1, 
+      0, -0.7, 0.2,
+
+      // Left
+      -0.1, -0.1, 0.1,
+      -0.1, -0.7, 0.1,
+      -0.1, -0.7, 0.2,
+      -0.1, -0.1, 0.2,
+
+      // Back
+      0, -0.1, 0.1,
+      0, -0.7, 0.1,
+      -0.1, -0.7, 0.1,
+      -0.1, -0.1, 0.1,
+  ],
+  vertexNormals : [
+      // Front
+      0, 0, 1,
+      0, 0, 1,
+      0, 0, 1,
+      0, 0, 1,
+
+      // Top
+      0, 1, 0,
+      0, 1, 0,
+      0, 1, 0,
+      0, 1, 0,
+
+      // Right
+      1, 0, 0,
+      1, 0, 0,
+      1, 0, 0,
+      1, 0, 0,
+
+      // Bottom
+      0, -1, 0,
+      0, -1, 0,
+      0, -1, 0,
+      0, -1, 0,
+
+      // Left
+      -1, 0, 0,
+      -1, 0, 0,
+      -1, 0, 0,
+      -1, 0, 0,
+      
+      // Back
+      0, 0, -1,
+      0, 0, -1,
+      0, 0, -1,
+      0, 0, -1,
+  ],
+  vertexColors : [
+      // Front
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Top
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Right
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Bottom
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Left
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Back
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+  ],
+  transform : [
+      [
+          1, 0, 0, -0.2,
+          0, 1, 0, 0.125,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
+  ],
+  animation : [
+    // 1
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+    // 2
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 3
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 4
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 5
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 6
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 7
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 8
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      
+      //9
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
+  ],    
+  child : null,
+  sibling : null
+}
+
+var leftbackleg = {
+  name : "leftbackleg",
+  vertexPositions : [
+      // Front
+      -0.1, -0.1, 0.2,
+      -0.1, -0.7, 0.2,
+      0, -0.7, 0.2,
+      0, -0.1, 0.2,
+      
+      // Top
+      -0.1, -0.1, 0.2,
+      -0.1, -0.1, 0.1,
+      0, -0.1, 0.1,
+      0, -0.1, 0.2,
+      
+      // Right
+      0, -0.1, 0.2, 
+      0, -0.7, 0.2,
+      0, -0.7, 0.1,
+      0, -0.1, 0.1,
+      
+      // Bottom,
+      -0.1, -0.7, 0.2,
+      -0.1, -0.7, 0.1,
+      0, -0.7, 0.1, 
+      0, -0.7, 0.2,
+      
+      // Left
+      -0.1, -0.1, 0.1,
+      -0.1, -0.7, 0.1,
+      -0.1, -0.7, 0.2,
+      -0.1, -0.1, 0.2,
+      
+      // Back
+      0, -0.1, 0.1,
+      0, -0.7, 0.1,
+      -0.1, -0.7, 0.1,
+      -0.1, -0.1, 0.1,
+  ],  
+  vertexNormals : [
+          // Front
+      0, 0, 1,
+      0, 0, 1,
+      0, 0, 1,
+      0, 0, 1,
+
+      // Top
+      0, 1, 0,
+      0, 1, 0,
+      0, 1, 0,
+      0, 1, 0,
+
+      // Right
+      1, 0, 0,
+      1, 0, 0,
+      1, 0, 0,
+      1, 0, 0,
+
+      // Bottom
+      0, -1, 0,
+      0, -1, 0,
+      0, -1, 0,
+      0, -1, 0,
+
+      // Left
+      -1, 0, 0,
+      -1, 0, 0,
+      -1, 0, 0,
+      -1, 0, 0,
+      
+      // Back
+      0, 0, -1,
+      0, 0, -1,
+      0, 0, -1,
+      0, 0, -1,
+  ],
+  vertexColors : [
+      // Front
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Top
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Right
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Bottom
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Left
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Back
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+  ],
+  transform : [
+      [
+          1, 0, 0, 0.3,
+          0, 1, 0, 0.125,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
+  ],
+  animation : [
+    // 1
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+    // 2
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 3
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 4
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 5
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 6
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 7
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 8
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      //9
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
+  ],
+  child : null,
+  sibling : leftfrontleg
+}
+
+var rightfrontleg = {
+  name : "rightfrontleg",
+  vertexPositions : [
+      // Front
+      -0.1, -0.1, -0.2,
+      -0.1, -0.7, -0.2,
+      0, -0.7, -0.2,
+      0, -0.1, -0.2,
+      
+       // Top
+      -0.1, -0.1, -0.2,
+      -0.1, -0.1, -0.1,
+      0, -0.1, -0.1,
+      0, -0.1, -0.2,
+      
+       // Right
+      0, -0.1, -0.2, 
+      0, -0.7, -0.2,
+      0, -0.7, -0.1,
+      0, -0.1, -0.1,
+      
+       // Bottom,
+      -0.1, -0.7, -0.2,
+      -0.1, -0.7, -0.1,
+      0, -0.7, -0.1, 
+      0, -0.7, -0.2,
+      
+       // Left
+      -0.1, -0.1, -0.1,
+      -0.1, -0.7, -0.1,
+      -0.1, -0.7, -0.2,
+      -0.1, -0.1, -0.2,
+      
+       // Back
+      0, -0.1, -0.1,
+      0, -0.7, -0.1,
+      -0.1, -0.7, -0.1,
+      -0.1, -0.1, -0.1,
+      ],
+  vertexNormals : [
+      // Front
+      0, 0, 1,
+      0, 0, 1,
+      0, 0, 1,
+      0, 0, 1,
+
+      // Top
+      0, 1, 0,
+      0, 1, 0,
+      0, 1, 0,
+      0, 1, 0,
+
+      // Right
+      1, 0, 0,
+      1, 0, 0,
+      1, 0, 0,
+      1, 0, 0,
+
+      // Bottom
+      0, -1, 0,
+      0, -1, 0,
+      0, -1, 0,
+      0, -1, 0,
+
+      // Left
+      -1, 0, 0,
+      -1, 0, 0,
+      -1, 0, 0,
+      -1, 0, 0,
+
+      // Back
+      0, 0, -1,
+      0, 0, -1,
+      0, 0, -1,
+      0, 0, -1,
+  ],
+  vertexColors : [
+      // Front
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Top
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Right
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Bottom
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Left
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Back
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+  ],
+  transform : [
+      [
+          1, 0, 0, -0.2,
+          0, 1, 0, 0.125,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
+  ],
+  animation : [
+    // 1
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 2
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 3
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 4
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 5
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 6
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 7
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 8
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      
+      //9
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
+  ],
+  child : null,
+  sibling : leftbackleg
+}
+
+var rightbackleg = {
+  name : "rightbackleg",
+  vertexPositions : [
+      // Front
+      -0.1, -0.1, -0.2,
+      -0.1, -0.7, -0.2,
+      0, -0.7, -0.2,
+      0, -0.1, -0.2,
+      
+      // Top
+      -0.1, -0.1, -0.2,
+      -0.1, -0.1, -0.1,
+      0, -0.1, -0.1,
+      0, -0.1, -0.2,
+      
+      // Right
+      0, -0.1, -0.2, 
+      0, -0.7, -0.2,
+      0, -0.7, -0.1,
+      0, -0.1, -0.1,
+      
+      // Bottom,
+      -0.1, -0.7, -0.2,
+      -0.1, -0.7, -0.1,
+      0, -0.7, -0.1, 
+      0, -0.7, -0.2,
+      
+      // Left
+      -0.1, -0.1, -0.1,
+      -0.1, -0.7, -0.1,
+      -0.1, -0.7, -0.2,
+      -0.1, -0.1, -0.2,
+      
+      // Back
+      0, -0.1, -0.1,
+      0, -0.7, -0.1,
+      -0.1, -0.7, -0.1,
+      -0.1, -0.1, -0.1,
+  ],
+  vertexNormals : [
+      // Front
+      0, 0, 1,
+      0, 0, 1,
+      0, 0, 1,
+      0, 0, 1,
+
+      // Top
+      0, 1, 0,
+      0, 1, 0,
+      0, 1, 0,
+      0, 1, 0,
+
+      // Right
+      1, 0, 0,
+      1, 0, 0,
+      1, 0, 0,
+      1, 0, 0,
+
+      // Bottom
+      0, -1, 0,
+      0, -1, 0,
+      0, -1, 0,
+      0, -1, 0,
+
+      // Left
+      -1, 0, 0,
+      -1, 0, 0,
+      -1, 0, 0,
+      -1, 0, 0,
+
+      // Back
+      0, 0, -1,
+      0, 0, -1,
+      0, 0, -1,
+      0, 0, -1,
+  ],
+  vertexColors : [
+      // Front
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Top
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Right
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Bottom
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Left
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+
+      // Back
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+      0.5, 0.3, 0.19,
+  ],
+  transform : [
+      [
+          1, 0, 0, 0.31,
+          0, 1, 0, 0.125,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
+  ],
+  animation : [
+      // 1
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 2
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 3
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 4
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 5
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 6
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 7
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 8
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      //9
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
+  ],
+  child : null,
+  sibling : rightfrontleg
+}
+
+var headc = {
+  name : "headc",
+  vertexPositions : [
+      // Front
+      -0.15, 0.15, 0.15,
+      -0.15, -0.15, 0.15,
+      0.15, -0.15, 0.15,
+      0.15, 0.15, 0.15,
+
+      // Top
+      -0.15, 0.15, -0.15,
+      -0.15, 0.15, 0.15,
+      0.15, 0.15, 0.15,
+      0.15, 0.15, -0.15,
+      
+      // Right
+      0.15, 0.15, 0.15, 
+      0.15, -0.15, 0.15,
+      0.15, -0.15, -0.15,
+      0.15, 0.15, -0.15,
+
+      // Bottom,
+      -0.15, -0.15, 0.15,
+      -0.15, -0.15, -0.15,
+      0.15, -0.15, -0.15, 
+      0.15, -0.15, 0.15,
+
+      // Left
+      -0.15, 0.15, -0.15,
+      -0.15, -0.15, -0.15,
+      -0.15, -0.15, 0.15,
+      -0.15, 0.15, 0.15,
+
+      // Back
+      0.15, 0.15, -0.15,
+      0.15, -0.15, -0.15,
+      -0.15, -0.15, -0.15,
+      -0.15, 0.15, -0.15
+  ],
+  vertexNormals : [
+      // Front
+      0, 0, 1,
+      0, 0, 1,
+      0, 0, 1,
+      0, 0, 1,
+
+      // Top
+      0, 1, 0,
+      0, 1, 0,
+      0, 1, 0,
+      0, 1, 0,
+
+      // Right
+      1, 0, 0,
+      1, 0, 0,
+      1, 0, 0,
+      1, 0, 0,
+
+      // Bottom
+      0, -1, 0,
+      0, -1, 0,
+      0, -1, 0,
+      0, -1, 0,
+
+      // Left
+      -1, 0, 0,
+      -1, 0, 0,
+      -1, 0, 0,
+      -1, 0, 0,
+
+      // Back
+      0, 0, -1,
+      0, 0, -1,
+      0, 0, -1,
+      0, 0, -1,
+  ],
+  vertexColors : [
+      // Front
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+
+      // Top
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+
+      // Right
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+
+      // Bottom
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+
+      // Left
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+
+      // Back
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+  ],
+  transform : [
+      [
+          1, 0, 0, -0.5,
+          0, 1, 0, 0.4,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
+  ],
+  animation : [
+      // 1
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 2
+      [   
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 3
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 4
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 5
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 6
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 7
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 8
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      //9
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
+  ],
+  child : null,
+  sibling : rightbackleg
+}   
+
+var cow = {
+  name : "base",
+  vertexPositions : [
+      // Front
+      -0.4, 0.4, 0.3,
+      -0.4, -0.1, 0.3,
+      0.4, -0.1, 0.3,
+      0.4, 0.4, 0.3,
+
+      // Top
+      -0.4, 0.4, -0.3,
+      -0.4, 0.4, 0.3,
+      0.4, 0.4, 0.3,
+      0.4, 0.4, -0.3,
+
+      // Right
+      0.4, 0.4, 0.3, 
+      0.4, -0.1, 0.3,
+      0.4, -0.1, -0.3,
+      0.4, 0.4, -0.3,
+
+      // Bottom,
+      0.4, -0.1, 0.3,
+      0.4, -0.1, -0.3,
+      -0.4, -0.1, -0.3,
+      -0.4, -0.1, 0.3,
+
+      // Left
+      -0.4, 0.4, -0.3, 
+      -0.4, -0.1, -0.3,
+      -0.4, -0.1, 0.3,
+      -0.4, 0.4, 0.3,
+
+      // Back
+      0.4, 0.4, -0.3,
+      0.4, -0.1, -0.3,
+      -0.4, -0.1, -0.3,
+      -0.4, 0.4, -0.3,
+  ],
+  vertexNormals : [
+      // Front
+      0, 0, 1,
+      0, 0, 1,
+      0, 0, 1,
+      0, 0, 1,
+
+      // Top
+      0, 1, 0,
+      0, 1, 0,
+      0, 1, 0,
+      0, 1, 0,
+
+      // Right
+      1, 0, 0,
+      1, 0, 0,
+      1, 0, 0,
+      1, 0, 0,
+
+      // Bottom
+      0, -1, 0,
+      0, -1, 0,
+      0, -1, 0,
+      0, -1, 0,
+
+      // Left
+      -1, 0, 0,
+      -1, 0, 0,
+      -1, 0, 0,
+      -1, 0, 0,
+
+      // Back
+      0, 0, -1,
+      0, 0, -1,
+      0, 0, -1,
+      0, 0, -1,
+  ],
+  vertexColors : [
+      // Front
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+
+      // Top
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+
+      // Right
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+
+      // Bottom
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+
+      // Left
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+
+      // Back
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+      0.6, 0.61, 0.59,
+  ],
+  transform : [
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
+  ],
+  animation : [
+      // 1
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 2
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 3
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 4
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 5
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 6
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 7
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      // 8
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ],
+
+      //9
+      [
+          1, 0, 0, 0,
+          0, 1, 0, 0,
+          0, 0, 1, 0,
+          0, 0, 0, 1,
+      ]
+  ],
+  child : headc,
+  sibling : null
+} 
 var articulatedModel = {
   name: "human",
   vertexPositions: [],
@@ -3150,6 +4454,59 @@ function seaweedComponent() {
     document.getElementById("rotation-x").value = topleafanglex;
     document.getElementById("rotation-y").value = topleafangley;
     document.getElementById("rotation-z").value = topleafanglez;
+  }
+}
+
+function cowComponent(){
+  var componentName = document.getElementById("cowcomponent").value;
+  if (componentName == "all") {
+    document.getElementById("scale").value = dilate;
+    document.getElementById("translation-x").value = transx;
+    document.getElementById("translation-y").value = transy;
+    document.getElementById("translation-z").value = transz;
+    document.getElementById("rotation-x").value = anglex;
+    document.getElementById("rotation-y").value = angley;
+    document.getElementById("rotation-z").value = anglez;
+  } else if (componentName == "LeftFront") {
+    document.getElementById("scale").value = LeftFrontDilate;
+    document.getElementById("translation-x").value = LeftFrontTransX;
+    document.getElementById("translation-y").value = LeftFrontTransY;
+    document.getElementById("translation-z").value = LeftFrontTransZ;
+    document.getElementById("rotation-x").value = LeftFrontAngleX;
+    document.getElementById("rotation-y").value = LeftFrontAngleY;
+    document.getElementById("rotation-z").value = LeftFrontAngleZ;
+  }else if (componentName == "LeftBack") {
+    document.getElementById("scale").value = LeftBackDilate;
+    document.getElementById("translation-x").value = LeftBackTransX;
+    document.getElementById("translation-y").value = LeftBackTransY;
+    document.getElementById("translation-z").value = LeftBackTransZ;
+    document.getElementById("rotation-x").value = LeftBackAngleX;
+    document.getElementById("rotation-y").value = LeftBackAngleY;
+    document.getElementById("rotation-z").value = LeftBackAngleZ;
+  }else if (componentName == "RightFront") {
+    document.getElementById("scale").value = RightFrontDilate;
+    document.getElementById("translation-x").value = RightFrontTransX;
+    document.getElementById("translation-y").value = RightFrontTransY;
+    document.getElementById("translation-z").value = RightFrontTransZ;
+    document.getElementById("rotation-x").value = RightFrontAngleX;
+    document.getElementById("rotation-y").value = RightFrontAngleY;
+    document.getElementById("rotation-z").value = RightFrontAngleZ;
+  }else if (componentName == "RightBack") {
+    document.getElementById("scale").value = RightBackDilate;
+    document.getElementById("translation-x").value = RightBackTransX;
+    document.getElementById("translation-y").value = RightBackTransY;
+    document.getElementById("translation-z").value = RightBackTransZ;
+    document.getElementById("rotation-x").value = RightBackAngleX;
+    document.getElementById("rotation-y").value = RightBackAngleY;
+    document.getElementById("rotation-z").value = RightBackAngleZ;
+  }else if (componentName == "HeadC") {
+    document.getElementById("scale").value = HeadCDilate;
+    document.getElementById("translation-x").value = HeadCTransX;
+    document.getElementById("translation-y").value = HeadCTransY;
+    document.getElementById("translation-z").value = HeadCTransZ;
+    document.getElementById("rotation-x").value = HeadCAngleX;
+    document.getElementById("rotation-y").value = HeadCAngleY;
+    document.getElementById("rotation-z").value = HeadCAngleZ;
   }
 }
 
@@ -3471,8 +4828,8 @@ function modelHandler() {
     traverse(seaweed, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
     hollowModel = articulatedModel;
   } else {
-    resetArticulatedModel("human");
-    traverse(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+    resetArticulatedModel("cow");
+    traverse(cow, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
     hollowModel = articulatedModel;
   }
   setup();
@@ -3815,6 +5172,39 @@ xTranslation.addEventListener('input', () => {
 
       resetTraverseRedraw(model);
     }
+  } else if (modelName == "cow"){
+    model = cow;
+    var componentName = document.getElementById("cowcomponent").value;
+    if(componentName == "all"){
+      const deltatransx = xValue - transx;
+      transx = xValue;
+      updateTranslate("object", 'x', deltatransx);
+    }else if(componentName == "LeftFront"){
+      const deltatransx = xValue - LeftFrontTransX;
+      LeftFrontTransX = xValue;
+      leftfrontleg.transform[0] = multiply(leftfrontleg.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      resetTraverseRedraw(model);
+    }else if(componentName == "LeftBack"){
+      const deltatransx = xValue - LeftBackTransX;
+      LeftBackTransX = xValue;
+      leftbackleg.transform[0] = multiply(leftbackleg.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      resetTraverseRedraw(model);
+    }else if(componentName == "RightBack"){
+      const deltatransx = xValue - RightBackTransX;
+      RightBackTransX = xValue;
+      rightbackleg.transform[0] = multiply(rightbackleg.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      resetTraverseRedraw(model);
+    }else if(componentName == "RightFront"){
+      const deltatransx = xValue - RightFrontTransX;
+      RightFrontTransX = xValue;
+      rightfrontleg.transform[0] = multiply(rightfrontleg.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      resetTraverseRedraw(model);
+    }else if(componentName == "HeadC"){
+      const deltatransx = xValue - HeadCTransX;
+      HeadCTransX = xValue;
+      headc.transform[0] = multiply(headc.transform[0], [1, 0, 0, deltatransx, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
+      resetTraverseRedraw(model);
+    }
   }
 });
 yTranslation.addEventListener('input', () => {
@@ -3919,6 +5309,39 @@ yTranslation.addEventListener('input', () => {
 
       topleaf.transform[0] = multiply(topleaf.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1]);
 
+      resetTraverseRedraw(model);
+    }
+  } else if (modelName == "cow"){
+    model = cow;
+    var componentName = document.getElementById("cowcomponent").value;
+    if(componentName == "all"){
+      const deltatransy = yValue - transy;
+      transy = yValue;
+      updateTranslate("object", 'y', deltatransy);
+    }else if(componentName == "LeftFront"){
+      const deltatransy = yValue - LeftFrontTransY;
+      LeftFrontTransY = yValue;
+      leftfrontleg.transform[0] = multiply(leftfrontleg.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1])
+      resetTraverseRedraw(model);
+    }else if(componentName == "LeftBack"){
+      const deltatransy = yValue - LeftBackTransY;
+      LeftBackTransY = yValue;
+      leftbackleg.transform[0] = multiply(leftbackleg.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1])
+      resetTraverseRedraw(model);
+    }else if(componentName == "RightBack"){
+      const deltatransy = yValue - RightBackTransY;
+      RightBackTransY = yValue;
+      rightbackleg.transform[0] = multiply(rightbackleg.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1])
+      resetTraverseRedraw(model);
+    }else if(componentName == "RightFront"){
+      const deltatransy = yValue - RightFrontTransY;
+      RightFrontTransY = yValue;
+      rightfrontleg.transform[0] = multiply(rightfrontleg.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1])
+      resetTraverseRedraw(model);
+    }else if(componentName == "HeadC"){
+      const deltatransy = yValue - HeadCTransY;
+      HeadCTransY = yValue;
+      headc.transform[0] = multiply(headc.transform[0], [1, 0, 0, 0, 0, 1, 0, deltatransy, 0, 0, 1, 0, 0, 0, 0, 1])
       resetTraverseRedraw(model);
     }
   }
@@ -4028,6 +5451,39 @@ zTranslation.addEventListener('input', () => {
 
       resetTraverseRedraw(model);
     }
+  } else if (modelName == "cow") {
+    model = cow;
+    var componentName = document.getElementById("cowcomponent").value;
+    if(componentName == "all"){
+      const deltatransz = zValue - transz;
+      transz = zValue;
+      updateTranslate("object", 'y', deltatransz);
+    }else if(componentName == "LeftFront"){
+      const deltatransz = zValue - LeftFrontTransZ;
+      LeftFrontTransZ = zValue;
+      leftfrontleg.transform[0] = multiply(leftfrontleg.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1])
+      resetTraverseRedraw(model);
+    }else if(componentName == "LeftBack"){
+      const deltatransz = zValue - LeftBackTransZ;
+      LeftBackTransZ = zValue;
+      leftbackleg.transform[0] = multiply(leftbackleg.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1])
+      resetTraverseRedraw(model);
+    }else if(componentName == "RightBack"){
+      const deltatransz = zValue - RightBackTransZ;
+      RightBackTransZ = zValue;
+      rightbackleg.transform[0] = multiply(rightbackleg.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1])
+      resetTraverseRedraw(model);
+    }else if(componentName == "RightFront"){
+      const deltatransz = zValue - RightFrontTransZ;
+      RightFrontTransZ = zValue;
+      rightfrontleg.transform[0] = multiply(rightfrontleg.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1])
+      resetTraverseRedraw(model);
+    }else if(componentName == "HeadC"){
+      const deltatransz = zValue - HeadCTransZ;
+      HeadCTransZ = zValue;
+      headc.transform[0] = multiply(headc.transform[0], [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, deltatransz, 0, 0, 0, 1])
+      resetTraverseRedraw(model);
+    }
   }
 });
 
@@ -4135,6 +5591,49 @@ scaleInput.addEventListener('input', () => {
 
       resetTraverseRedraw(model);
     }
+  } else if (modelName == "cow") {
+    model = cow;
+    var componentName = document.getElementById("cowcomponent").value;
+    if(componentName == "all"){
+      const deltascale = scaleValue / dilate;
+      dilate = scaleValue;
+      updateScale("object", deltascale);
+    }else if(componentName == "LeftFront"){
+      const deltascale = scaleValue / LeftFrontDilate;
+      LeftFrontDilate = deltascale;
+
+      leftfrontleg.transform[2] = multiply([deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1], leftfrontleg.transform[2])
+
+      resetTraverseRedraw(model);
+    }else if(componentName == "LeftBack"){
+      const deltascale = scaleValue / LeftBackDilate;
+      LeftBackDilate = deltascale;
+
+      leftbackleg.transform[2] = multiply([deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1], leftbackleg.transform[2])
+
+      resetTraverseRedraw(model);
+    }else if(componentName == "RightFront"){
+      const deltascale = scaleValue / RightFrontDilate;
+      RightFrontDilate = deltascale;
+
+      rightfrontleg.transform[2] = multiply([deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1], rightfrontleg.transform[2])
+
+      resetTraverseRedraw(model);
+    }else if(componentName == "RightBack"){
+      const deltascale = scaleValue / RightBackDilate;
+      RightBackDilate = deltascale;
+
+      rightbackleg.transform[2] = multiply([deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1], rightbackleg.transform[2])
+
+      resetTraverseRedraw(model);
+    }else if(componentName == "HeadC"){
+      const deltascale = scaleValue / HeadCDilate;
+      HeadCDilate = deltascale;
+
+      headc.transform[2] = multiply([deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, deltascale, 0, 0, 0, 0, 1], headc.transform[2])
+
+      resetTraverseRedraw(model);
+    }
   }
 });
 rotXInput.addEventListener('input', () => {
@@ -4238,6 +5737,49 @@ rotXInput.addEventListener('input', () => {
       topleafanglex = rotxValue;
 
       topleaf.transform[1] = multiply(topleaf.transform[1], rotationMatrix(deltarotx, 0, 0));
+
+      resetTraverseRedraw(model);
+    }
+  } else if (modelName == "cow") {
+    model = cow;
+    var componentName = document.getElementById("cowcomponent").value;
+    if (componentName == "all") {
+      const deltarotx = rotxValue - anglex;
+      anglex = rotxValue;
+      updateRotation("object", deltarotx, 0, 0)
+    } else if (componentName == "HeadC"){
+      const deltarotx = rotxValue - HeadCAngleX;
+      HeadCAngleX = rotxValue;
+
+      headc.transform[1] = multiply(headc.transform[1], rotationMatrix(deltarotx, 0, 0));
+
+      resetTraverseRedraw(model);
+    }else if (componentName == "LeftFront"){
+      const deltarotx = rotxValue - LeftFrontAngleX;
+      LeftFrontAngleX = rotxValue;
+
+      leftfrontleg.transform[1] = multiply(leftfrontleg.transform[1], rotationMatrix(deltarotx, 0, 0));
+
+      resetTraverseRedraw(model);
+    }else if (componentName == "LeftBack"){
+      const deltarotx = rotxValue - LeftBackAngleX;
+      LeftBackAngleX = rotxValue;
+
+      leftbackleg.transform[1] = multiply(leftbackleg.transform[1], rotationMatrix(deltarotx, 0, 0));
+
+      resetTraverseRedraw(model);
+    }else if (componentName == "RightFront"){
+      const deltarotx = rotxValue - RightFrontAngleX;
+      RightFrontAngleX = rotxValue;
+
+      rightfrontleg.transform[1] = multiply(rightfrontleg.transform[1], rotationMatrix(deltarotx, 0, 0));
+
+      resetTraverseRedraw(model);
+    }else if (componentName == "RightBack"){
+      const deltarotx = rotxValue - RightBackAngleX;
+      RightBackAngleX = rotxValue;
+
+      rightbackleg.transform[1] = multiply(rightbackleg.transform[1], rotationMatrix(deltarotx, 0, 0));
 
       resetTraverseRedraw(model);
     }
@@ -4348,6 +5890,49 @@ rotYInput.addEventListener('input', () => {
 
       resetTraverseRedraw(model);
     }
+  } else if (modelName == "cow") {
+    model = cow;
+    var componentName = document.getElementById("cowcomponent").value;
+    if (componentName == "all") {
+      const deltaroty = rotyValue - angley;
+      angley = rotyValue;
+      updateRotation("object", 0, deltaroty, 0)
+    } else if (componentName == "HeadC") {
+      const deltaroty = rotyValue - HeadCAngleY;
+      HeadCAngleY = rotyValue;
+
+      headc.transform[1] = multiply(headc.transform[1], rotationMatrix(0, deltaroty, 0));
+
+      resetTraverseRedraw(model);
+    }else if (componentName == "LeftFront") {
+      const deltaroty = rotyValue - LeftFrontAngleY;
+      LeftFrontAngleY = rotyValue;
+
+      leftfrontleg.transform[1] = multiply(leftfrontleg.transform[1], rotationMatrix(0, deltaroty, 0));
+
+      resetTraverseRedraw(model);
+    }else if (componentName == "LeftBack") {
+      const deltaroty = rotyValue - LeftBackAngleY;
+      LeftBackAngleY = rotyValue;
+
+      leftbackleg.transform[1] = multiply(leftbackleg.transform[1], rotationMatrix(0, deltaroty, 0));
+
+      resetTraverseRedraw(model);
+    }else if (componentName == "RightFront") {
+      const deltaroty = rotyValue - RightFrontAngleY;
+      RightFrontAngleY = rotyValue;
+
+      rightfrontleg.transform[1] = multiply(rightfrontleg.transform[1], rotationMatrix(0, deltaroty, 0));
+
+      resetTraverseRedraw(model);
+    }else if (componentName == "RightBack") {
+      const deltaroty = rotyValue - RightBackAngleY;
+      RightBackAngleY = rotyValue;
+
+      rightbackleg.transform[1] = multiply(rightbackleg.transform[1], rotationMatrix(0, deltaroty, 0));
+
+      resetTraverseRedraw(model);
+    }
   }
 })
 rotZInput.addEventListener('input', () => {
@@ -4451,6 +6036,49 @@ rotZInput.addEventListener('input', () => {
       topleafanglez = rotzValue;
 
       topleaf.transform[1] = multiply(topleaf.transform[1], rotationMatrix(0, 0, deltarotz));
+
+      resetTraverseRedraw(model);
+    }
+  } else if (modelName == "cow") {
+    model = seaweed;
+    var componentName = document.getElementById("seaweedcomponent").value;
+    if (componentName == "all") {
+      const deltarotz = rotzValue - anglez;
+      anglez = rotzValue;
+      updateRotation("object", 0, 0, deltarotz)
+    } else if(componentName == "HeadC"){
+      const deltarotz = rotzValue - HeadCAngleZ;
+      HeadCAngleZ = rotzValue;
+
+      headc.transform[1] = multiply(headc.transform[1], rotationMatrix(0, 0, deltarotz));
+
+      resetTraverseRedraw(model);
+    }else if(componentName == "LeftFront"){
+      const deltarotz = rotzValue - LeftFrontAngleZ;
+      LeftFrontAngleZ = rotzValue;
+
+      leftfrontleg.transform[1] = multiply(leftfrontleg.transform[1], rotationMatrix(0, 0, deltarotz));
+
+      resetTraverseRedraw(model);
+    }else if(componentName == "LeftBack"){
+      const deltarotz = rotzValue - LeftBackAngleZ;
+      LeftBackAngleZ = rotzValue;
+
+      leftbackleg.transform[1] = multiply(leftbackleg.transform[1], rotationMatrix(0, 0, deltarotz));
+
+      resetTraverseRedraw(model);
+    }else if(componentName == "RightFront"){
+      const deltarotz = rotzValue - RightFrontAngleZ;
+      RightFrontAngleZ = rotzValue;
+
+      rightfrontleg.transform[1] = multiply(rightfrontleg.transform[1], rotationMatrix(0, 0, deltarotz));
+
+      resetTraverseRedraw(model);
+    }else if(componentName == "RightBack"){
+      const deltarotz = rotzValue - RightBackAngleZ;
+      RightBackAngleZ = rotzValue;
+
+      rightbackleg.transform[1] = multiply(rightbackleg.transform[1], rotationMatrix(0, 0, deltarotz));
 
       resetTraverseRedraw(model);
     }
