@@ -23,9 +23,10 @@
         </div>
         Select Model:
         <select  id="model" onchange="modelHandler()">
-          <option value="pyramid" selected="selected">Pyramid-Steven</option>
-          <option value="hollow-cube">Hollow Cube-Adzka</option>
-          <option value="prism">Prism-Daffa</option>
+          <option value="human" selected="selected">Human-Daffa</option>
+          <option value="giraffe">Giraffe-Steven</option>
+          <option value="seaweed">Seaweed-Adzka</option>
+          <option value="cow">Cow-Hilda</option>
         </select>
         <br>
         <br>
@@ -39,6 +40,56 @@
       <h2>Object Setting</h2>
       <div id="shapeToolContainer" class="toolContainer">
         <div id="scaling" class="tool">
+          <div id="selecthumancomponent">
+            Select Human Component:
+            <select  id="humancomponent" onchange="humanComponent()">
+              <option value="all" selected="selected">All</option>
+              <option value="head">Head</option>
+              <option value="leftupperarm">Left Upper Arm</option>
+              <option value="rightupperarm">Right Upper Arm</option>
+              <option value="leftupperleg">Left Upper Leg</option>
+              <option value="rightupperleg">Right Upper Leg</option>
+              <option value="leftlowerarm">Left Lower Arm</option>
+              <option value="rightlowerarm">Right Lower Arm</option>
+              <option value="leftlowerleg">Left Lower Leg</option>
+              <option value="rightlowerleg">Right Lower Leg</option>
+            </select>
+          </div>
+          <div id="selectgiraffecomponent">
+            Select Giraffe Component:
+            <select  id="giraffecomponent" onchange="giraffeComponent()">
+              <option value="all" selected="selected">All</option>
+              <option value="head1">Head</option>
+              <option value="leftupperarm1">Neck </option>
+              <option value="rightupperarm1">Right Upper Arm</option>
+              <option value="leftupperleg1">Left Upper Leg</option>
+              <option value="rightupperleg1">Right Upper Leg</option>
+              <option value="leftlowerarm1">Left Lower Arm</option>
+              <option value="rightlowerarm1">Right Lower Arm</option>
+              <option value="leftlowerleg1">Left Lower Leg</option>
+              <option value="rightlowerleg1">Right Lower Leg</option>
+            </select>
+          </div>
+          <div id="selectseaweedcomponent">
+            Select Seaweed Component:
+            <select  id="seaweedcomponent" onchange="seaweedComponent()">
+              <option value="all" selected="selected">All</option>
+              <option value="bottomleaf">Bottom Leaf</option>
+              <option value="middleleaf">Middle Leaf</option>
+              <option value="topleaf">Top Leaf</option>
+            </select>
+          </div>
+          <div id="selectcowcomponent">
+            Select Cow Component:
+            <select  id="cowcomponent" onchange="cowComponent()">
+              <option value="all" selected="selected">All</option>
+              <option value="HeadC" >Head</option>
+              <option value="LeftFront">Left Front Leg</option>
+              <option value="LeftBack">Left Back Leg</option>
+              <option value="RightFront">Right Front Leg</option>
+              <option value="RightBack">Right Back Leg</option>
+            </select>
+          </div>
           <label for="scale">Scale</label>
           <input type="range" min="0.5" max="2" value="1" class="slider" id="scale" step="0.001">
           <br>
@@ -73,7 +124,12 @@
           <br>
           <label for="shading">Shading</label>
           <input type="checkbox" id="shading" checked>
-          
+          <div>
+            <br>
+            <button onclick="animateModel()">Animate</button>
+            Loop Animation
+            <input type="checkbox" id="animateCheckbox" onchange="loopAnimateModel()">
+          </div>
         </div>
       </div>
       <br>
@@ -103,11 +159,12 @@
       <h2>HELP</h2>
       <h3>3D Objects</h3>
       <p>&emsp;<b>Select Model</b> Choose a model to display.
-         Model : Pyramid, Cube, Prism.</p>
+         Model : Human, Giraffe, Seaweed, Cow.</p>
       <p>&emsp;<b>Projection type</b> Choose a projection type to display the model.
          Projection : Perspective, Orthographic, Oblique</p>
       <h3>Object Setting</h3>
-      <p>Transform the model</p>
+      <p>Select Component to Transform on "Select (Model) Component"</p>
+      <p>Transform the Selected Component</p>
       
       <p>&emsp;<b>Scale</b> Enlarge or shrink the model</p>
       <p>&emsp;<b>Translation</b> Move the model depending on the axis (x,y,z)</p>
@@ -119,6 +176,8 @@
       
       <p>&emsp;<b>Distance</b> Change the distance between the camera and the model</p>
       <p>&emsp;<b>Shading</b> Toogle light and shade effect</p>
+      <p>&emsp;<b>Animate</b> Animate the model once</p>
+      <p>&emsp;<b>Loop Animation</b> Toogle animation looping</p>
       <button class="center" onclick="hidehelp()">OK</button>
     </div>
   </div>
