@@ -5835,6 +5835,13 @@ async function animateModel() {
   }
 }
 
+async function loopAnimateModel() {
+  while (document.getElementById("animateCheckbox").checked) {
+    await animateModel();
+  }
+}
+
+
 const canvas = document.getElementById("canvas");
 const gl = check(canvas);
 var oldAngle = 0;
