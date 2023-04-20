@@ -1301,7 +1301,6 @@ var articulatedModel = {
 var transformStack = [];
 traverse(cow, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1])
 hollowModel = articulatedModel;
-
 function traverse(currentModel, currentModelMatrix) {
   console.log("TRAVERSE ENTER");
   console.log(currentModel.name);
