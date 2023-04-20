@@ -39,6 +39,28 @@
       </div>
       <h2>Object Setting</h2>
       <div id="shapeToolContainer" class="toolContainer">
+        Select Component:
+        <select  id="humancomponent" onchange="humanComponent()">
+          <option value="all" selected="selected">All</option>
+          <option value="head">Head</option>
+          <option value="leftupperarm">Left Upper Arm</option>
+          <option value="rightupperarm">Right Upper Arm</option>
+          <option value="leftupperleg">Left Upper Leg</option>
+          <option value="rightupperleg">Right Upper Leg</option>
+          <option value="leftlowerarm">Left Lower Arm</option>
+          <option value="rightlowerarm">Right Lower Arm</option>
+          <option value="leftlowerleg">Left Lower Leg</option>
+          <option value="rightlowerleg">Right Lower Leg</option>
+        </select>
+        Select Cow Component:
+        <select  id="cowcomponent" onchange="cowComponent()">
+          <option value="all" selected="selected">All</option>
+          <option value="head">Head</option>
+          <option value="rightfrontleg">Right Front Leg</option>
+          <option value="leftfrontleg">Left Front Leg</option>
+          <option value="rightbackleg">Right Back Leg</option>
+          <option value="leftbackleg">Left Back Leg</option>
+        </select>
         <div id="scaling" class="tool">
           <label for="scale">Scale</label>
           <input type="range" min="0.5" max="2" value="1" class="slider" id="scale" step="0.001">
