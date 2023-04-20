@@ -6040,8 +6040,8 @@ rotZInput.addEventListener('input', () => {
       resetTraverseRedraw(model);
     }
   } else if (modelName == "cow") {
-    model = seaweed;
-    var componentName = document.getElementById("seaweedcomponent").value;
+    model = cow;
+    var componentName = document.getElementById("cowcomponent").value;
     if (componentName == "all") {
       const deltarotz = rotzValue - anglez;
       anglez = rotzValue;
