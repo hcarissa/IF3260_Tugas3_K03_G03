@@ -5802,37 +5802,66 @@ function traverseAnimate(currentModel, currentModelMatrix, frame) {
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
 
 async function animateModel() {
   console.log("ANIMATE");
   var modelName = document.getElementById("model").value;
   if (modelName == "human") {
-    for (let i = 0; i < 9; i++) {
+    for (let i = 0; i < 9-1; i++) {
       console.log("ANIMATE HUMAN");
       resetArticulatedModel("human");
       traverseAnimate(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1], i);
+      
+      // interpolate with next frame
+      resetArticulatedModel("human");
+      traverseAnimate(human, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1], i+1);
+      for (let j = 0; j < articulatedModel.vertexPositions.length; j++) {
+        articulatedModel.vertexPositions[j] = lerp(hollowModel.vertexPositions[j], articulatedModel.vertexPositions[j], 0.5);
+        articulatedModel.vertexNormals[j] = lerp(hollowModel.vertexNormals[j], articulatedModel.vertexNormals[j], 0.5);
+      }
+      
       hollowModel = articulatedModel; 
       redraw();
       await sleep(200);
     }
   } else if (modelName == "seaweed") {
-    for (let i = 0; i < 9; i++) {
-      console.log("ANIMATE SEAWEED");
+    for (let i = 0; i < 9-1; i++) {
       resetArticulatedModel("seaweed");
       traverseAnimate(seaweed, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1], i);
-      hollowModel = articulatedModel;
-      redraw();
-      await sleep(200);
-    }
-  }else if (modelName == "cow") {
-    for (let i = 0; i < 9; i++) {
-      resetArticulatedModel("cow");
-      traverseAnimate(cow, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1], i);
+      
+      // interpolate with next frame
+      resetArticulatedModel("seaweed");
+      traverseAnimate(seaweed, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1], i+1);
+      for (let j = 0; j < articulatedModel.vertexPositions.length; j++) {
+        articulatedModel.vertexPositions[j] = lerp(hollowModel.vertexPositions[j], articulatedModel.vertexPositions[j], 0.5);
+        articulatedModel.vertexNormals[j] = lerp(hollowModel.vertexNormals[j], articulatedModel.vertexNormals[j], 0.5);
+      }
+      
       hollowModel = articulatedModel; 
       redraw();
       await sleep(200);
     }
-  }
+  } else if (modelName == "cow") {
+    for (let i = 0; i < 9-1; i++) {
+      resetArticulatedModel("cow");
+      traverseAnimate(cow, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1], i);
+      
+      // interpolate with next frame
+      resetArticulatedModel("cow");
+      traverseAnimate(cow, [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1], i+1);
+      for (let j = 0; j < articulatedModel.vertexPositions.length; j++) {
+        articulatedModel.vertexPositions[j] = lerp(hollowModel.vertexPositions[j], articulatedModel.vertexPositions[j], 0.5);
+        articulatedModel.vertexNormals[j] = lerp(hollowModel.vertexNormals[j], articulatedModel.vertexNormals[j], 0.5);
+      }
+      
+      hollowModel = articulatedModel; 
+      redraw();
+      await sleep(80);
+    }
+  } 
 }
 
 async function loopAnimateModel() {
